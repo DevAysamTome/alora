@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "145092540242",
+    "project_id": "aloraapp-9020e",
+    "storage_bucket": "aloraapp-9020e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:145092540242:android:fd88367cfa4954d10e6c8b",
+        "android_client_info": {
+          "package_name": "com.technocore.aloraapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXsFSyZiVHSJccaaFrIaJYOcwMmjymD7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

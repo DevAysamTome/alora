@@ -1,60 +1,51 @@
-diff --git a/ios/Flutter/Debug.xcconfig b/ios/Flutter/Debug.xcconfig
-index 0b2d479..dfd2626 100644
---- a/ios/Flutter/Debug.xcconfig
-+++ b/ios/Flutter/Debug.xcconfig
-@@ -1 +1,2 @@
-+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
- #include "Generated.xcconfig"
-diff --git a/ios/Flutter/Release.xcconfig b/ios/Flutter/Release.xcconfig
-index 0b2d479..a97381a 100644
---- a/ios/Flutter/Release.xcconfig
-+++ b/ios/Flutter/Release.xcconfig
-@@ -1 +1,2 @@
-+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
- #include "Generated.xcconfig"
-diff --git a/ios/GoogleService-Info.plist b/ios/GoogleService-Info.plist
-new file mode 100644
-index 0000000..9ccd591
---- /dev/null
-+++ b/ios/GoogleService-Info.plist
-@@ -0,0 +1,30 @@
-+<?xml version="1.0" encoding="UTF-8"?>
-+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-+<plist version="1.0">
-+<dict>
-+	<key>API_KEY</key>
-+	<string>AIzaSyBsAHE_l2p0L9SrxAoU4wlpR8hl7qJe-B8</string>
-+	<key>GCM_SENDER_ID</key>
-+	<string>145092540242</string>
-+	<key>PLIST_VERSION</key>
-+	<string>1</string>
-+	<key>BUNDLE_ID</key>
-+	<string>com.technocore.aloraapp</string>
-+	<key>PROJECT_ID</key>
-+	<string>aloraapp-9020e</string>
-+	<key>STORAGE_BUCKET</key>
-+	<string>aloraapp-9020e.firebasestorage.app</string>
-+	<key>IS_ADS_ENABLED</key>
-+	<false></false>
-+	<key>IS_ANALYTICS_ENABLED</key>
-+	<false></false>
-+	<key>IS_APPINVITE_ENABLED</key>
-+	<true></true>
-+	<key>IS_GCM_ENABLED</key>
-+	<true></true>
-+	<key>IS_SIGNIN_ENABLED</key>
-+	<true></true>
-+	<key>GOOGLE_APP_ID</key>
-+	<string>1:145092540242:ios:67bb211fcb43d4130e6c8b</string>
-+</dict>
-+</plist>
-\ No newline at end of file
 diff --git a/ios/Podfile b/ios/Podfile
-new file mode 100644
-index 0000000..e549ee2
---- /dev/null
+index cce7e8b..e549ee2 100644
+--- a/ios/Podfile
 +++ b/ios/Podfile
-@@ -0,0 +1,43 @@
+@@ -1,43 +1,43 @@
+-# Uncomment this line to define a global platform for your project
+-# platform :ios, '12.0'
+-
+-# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
+-ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+-
+-project 'Runner', {
+-  'Debug' => :debug,
+-  'Profile' => :release,
+-  'Release' => :release,
+-}
+-
+-def flutter_root
+-  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'Generated.xcconfig'), __FILE__)
+-  unless File.exist?(generated_xcode_build_settings_path)
+-    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure flutter pub get is executed first"
+-  end
+-
+-  File.foreach(generated_xcode_build_settings_path) do |line|
+-    matches = line.match(/FLUTTER_ROOT\=(.*)/)
+-    return matches[1].strip if matches
+-  end
+-  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Generated.xcconfig, then run flutter pub get"
+-end
+-
+-require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
+-
+-flutter_ios_podfile_setup
+-
+-target 'Runner' do
+-  use_frameworks!
+-
+-  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+-  target 'RunnerTests' do
+-    inherit! :search_paths
+-  end
+-end
+-
+-post_install do |installer|
+-  installer.pods_project.targets.each do |target|
+-    flutter_additional_ios_build_settings(target)
+-  end
+-end
 +# Uncomment this line to define a global platform for your project
 +# platform :ios, '12.0'
 +
@@ -99,11 +90,1371 @@ index 0000000..e549ee2
 +  end
 +end
 diff --git a/ios/Podfile.lock b/ios/Podfile.lock
-new file mode 100644
-index 0000000..810e9e9
---- /dev/null
+index 1663eb7..810e9e9 100644
+--- a/ios/Podfile.lock
 +++ b/ios/Podfile.lock
-@@ -0,0 +1,1361 @@
+@@ -1,1361 +1,1361 @@
+-PODS:
+-  - abseil/algorithm (1.20240116.2):
+-    - abseil/algorithm/algorithm (= 1.20240116.2)
+-    - abseil/algorithm/container (= 1.20240116.2)
+-  - abseil/algorithm/algorithm (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/algorithm/container (1.20240116.2):
+-    - abseil/algorithm/algorithm
+-    - abseil/base/core_headers
+-    - abseil/base/nullability
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/base (1.20240116.2):
+-    - abseil/base/atomic_hook (= 1.20240116.2)
+-    - abseil/base/base (= 1.20240116.2)
+-    - abseil/base/base_internal (= 1.20240116.2)
+-    - abseil/base/config (= 1.20240116.2)
+-    - abseil/base/core_headers (= 1.20240116.2)
+-    - abseil/base/cycleclock_internal (= 1.20240116.2)
+-    - abseil/base/dynamic_annotations (= 1.20240116.2)
+-    - abseil/base/endian (= 1.20240116.2)
+-    - abseil/base/errno_saver (= 1.20240116.2)
+-    - abseil/base/fast_type_id (= 1.20240116.2)
+-    - abseil/base/log_severity (= 1.20240116.2)
+-    - abseil/base/malloc_internal (= 1.20240116.2)
+-    - abseil/base/no_destructor (= 1.20240116.2)
+-    - abseil/base/nullability (= 1.20240116.2)
+-    - abseil/base/prefetch (= 1.20240116.2)
+-    - abseil/base/pretty_function (= 1.20240116.2)
+-    - abseil/base/raw_logging_internal (= 1.20240116.2)
+-    - abseil/base/spinlock_wait (= 1.20240116.2)
+-    - abseil/base/strerror (= 1.20240116.2)
+-    - abseil/base/throw_delegate (= 1.20240116.2)
+-  - abseil/base/atomic_hook (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/base/base (1.20240116.2):
+-    - abseil/base/atomic_hook
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/cycleclock_internal
+-    - abseil/base/dynamic_annotations
+-    - abseil/base/log_severity
+-    - abseil/base/nullability
+-    - abseil/base/raw_logging_internal
+-    - abseil/base/spinlock_wait
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/base/base_internal (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/base/config (1.20240116.2):
+-    - abseil/xcprivacy
+-  - abseil/base/core_headers (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/base/cycleclock_internal (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/base/dynamic_annotations (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/base/endian (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/nullability
+-    - abseil/xcprivacy
+-  - abseil/base/errno_saver (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/base/fast_type_id (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/base/log_severity (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/base/malloc_internal (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/dynamic_annotations
+-    - abseil/base/raw_logging_internal
+-    - abseil/xcprivacy
+-  - abseil/base/no_destructor (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/base/nullability (1.20240116.2):
+-    - abseil/base/core_headers
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/base/prefetch (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/base/pretty_function (1.20240116.2):
+-    - abseil/xcprivacy
+-  - abseil/base/raw_logging_internal (1.20240116.2):
+-    - abseil/base/atomic_hook
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/errno_saver
+-    - abseil/base/log_severity
+-    - abseil/xcprivacy
+-  - abseil/base/spinlock_wait (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/core_headers
+-    - abseil/base/errno_saver
+-    - abseil/xcprivacy
+-  - abseil/base/strerror (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/errno_saver
+-    - abseil/xcprivacy
+-  - abseil/base/throw_delegate (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/raw_logging_internal
+-    - abseil/xcprivacy
+-  - abseil/cleanup/cleanup (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/cleanup/cleanup_internal
+-    - abseil/xcprivacy
+-  - abseil/cleanup/cleanup_internal (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/core_headers
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/container/common (1.20240116.2):
+-    - abseil/meta/type_traits
+-    - abseil/types/optional
+-    - abseil/xcprivacy
+-  - abseil/container/common_policy_traits (1.20240116.2):
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/container/compressed_tuple (1.20240116.2):
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/container/container_memory (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/memory/memory
+-    - abseil/meta/type_traits
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/container/fixed_array (1.20240116.2):
+-    - abseil/algorithm/algorithm
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/dynamic_annotations
+-    - abseil/base/throw_delegate
+-    - abseil/container/compressed_tuple
+-    - abseil/memory/memory
+-    - abseil/xcprivacy
+-  - abseil/container/flat_hash_map (1.20240116.2):
+-    - abseil/algorithm/container
+-    - abseil/base/core_headers
+-    - abseil/container/container_memory
+-    - abseil/container/hash_function_defaults
+-    - abseil/container/raw_hash_map
+-    - abseil/memory/memory
+-    - abseil/xcprivacy
+-  - abseil/container/flat_hash_set (1.20240116.2):
+-    - abseil/algorithm/container
+-    - abseil/base/core_headers
+-    - abseil/container/container_memory
+-    - abseil/container/hash_function_defaults
+-    - abseil/container/raw_hash_set
+-    - abseil/memory/memory
+-    - abseil/xcprivacy
+-  - abseil/container/hash_function_defaults (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/hash/hash
+-    - abseil/strings/cord
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/container/hash_policy_traits (1.20240116.2):
+-    - abseil/container/common_policy_traits
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/container/hashtable_debug_hooks (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/container/hashtablez_sampler (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/raw_logging_internal
+-    - abseil/debugging/stacktrace
+-    - abseil/memory/memory
+-    - abseil/profiling/exponential_biased
+-    - abseil/profiling/sample_recorder
+-    - abseil/synchronization/synchronization
+-    - abseil/time/time
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/container/inlined_vector (1.20240116.2):
+-    - abseil/algorithm/algorithm
+-    - abseil/base/core_headers
+-    - abseil/base/throw_delegate
+-    - abseil/container/inlined_vector_internal
+-    - abseil/memory/memory
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/container/inlined_vector_internal (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/container/compressed_tuple
+-    - abseil/memory/memory
+-    - abseil/meta/type_traits
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/container/layout (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/debugging/demangle_internal
+-    - abseil/meta/type_traits
+-    - abseil/strings/strings
+-    - abseil/types/span
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/container/raw_hash_map (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/throw_delegate
+-    - abseil/container/container_memory
+-    - abseil/container/raw_hash_set
+-    - abseil/xcprivacy
+-  - abseil/container/raw_hash_set (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/dynamic_annotations
+-    - abseil/base/endian
+-    - abseil/base/prefetch
+-    - abseil/base/raw_logging_internal
+-    - abseil/container/common
+-    - abseil/container/compressed_tuple
+-    - abseil/container/container_memory
+-    - abseil/container/hash_policy_traits
+-    - abseil/container/hashtable_debug_hooks
+-    - abseil/container/hashtablez_sampler
+-    - abseil/hash/hash
+-    - abseil/memory/memory
+-    - abseil/meta/type_traits
+-    - abseil/numeric/bits
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/crc/cpu_detect (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/crc/crc32c (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/base/prefetch
+-    - abseil/crc/cpu_detect
+-    - abseil/crc/crc_internal
+-    - abseil/crc/non_temporal_memcpy
+-    - abseil/strings/str_format
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/crc/crc_cord_state (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/crc/crc32c
+-    - abseil/numeric/bits
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/crc/crc_internal (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/base/prefetch
+-    - abseil/base/raw_logging_internal
+-    - abseil/crc/cpu_detect
+-    - abseil/memory/memory
+-    - abseil/numeric/bits
+-    - abseil/xcprivacy
+-  - abseil/crc/non_temporal_arm_intrinsics (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/crc/non_temporal_memcpy (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/crc/non_temporal_arm_intrinsics
+-    - abseil/xcprivacy
+-  - abseil/debugging/debugging_internal (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/dynamic_annotations
+-    - abseil/base/errno_saver
+-    - abseil/base/raw_logging_internal
+-    - abseil/xcprivacy
+-  - abseil/debugging/demangle_internal (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/debugging/examine_stack (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/raw_logging_internal
+-    - abseil/debugging/stacktrace
+-    - abseil/debugging/symbolize
+-    - abseil/xcprivacy
+-  - abseil/debugging/stacktrace (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/dynamic_annotations
+-    - abseil/base/raw_logging_internal
+-    - abseil/debugging/debugging_internal
+-    - abseil/xcprivacy
+-  - abseil/debugging/symbolize (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/dynamic_annotations
+-    - abseil/base/malloc_internal
+-    - abseil/base/raw_logging_internal
+-    - abseil/debugging/debugging_internal
+-    - abseil/debugging/demangle_internal
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/flags/commandlineflag (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/fast_type_id
+-    - abseil/flags/commandlineflag_internal
+-    - abseil/strings/strings
+-    - abseil/types/optional
+-    - abseil/xcprivacy
+-  - abseil/flags/commandlineflag_internal (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/fast_type_id
+-    - abseil/xcprivacy
+-  - abseil/flags/config (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/flags/path_util
+-    - abseil/flags/program_name
+-    - abseil/strings/strings
+-    - abseil/synchronization/synchronization
+-    - abseil/xcprivacy
+-  - abseil/flags/flag (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/flags/config
+-    - abseil/flags/flag_internal
+-    - abseil/flags/reflection
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/flags/flag_internal (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/dynamic_annotations
+-    - abseil/flags/commandlineflag
+-    - abseil/flags/commandlineflag_internal
+-    - abseil/flags/config
+-    - abseil/flags/marshalling
+-    - abseil/flags/reflection
+-    - abseil/memory/memory
+-    - abseil/meta/type_traits
+-    - abseil/strings/strings
+-    - abseil/synchronization/synchronization
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/flags/marshalling (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/log_severity
+-    - abseil/numeric/int128
+-    - abseil/strings/str_format
+-    - abseil/strings/strings
+-    - abseil/types/optional
+-    - abseil/xcprivacy
+-  - abseil/flags/path_util (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/flags/private_handle_accessor (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/flags/commandlineflag
+-    - abseil/flags/commandlineflag_internal
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/flags/program_name (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/flags/path_util
+-    - abseil/strings/strings
+-    - abseil/synchronization/synchronization
+-    - abseil/xcprivacy
+-  - abseil/flags/reflection (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/no_destructor
+-    - abseil/container/flat_hash_map
+-    - abseil/flags/commandlineflag
+-    - abseil/flags/commandlineflag_internal
+-    - abseil/flags/config
+-    - abseil/flags/private_handle_accessor
+-    - abseil/strings/strings
+-    - abseil/synchronization/synchronization
+-    - abseil/xcprivacy
+-  - abseil/functional/any_invocable (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/meta/type_traits
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/functional/bind_front (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/container/compressed_tuple
+-    - abseil/meta/type_traits
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/functional/function_ref (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/core_headers
+-    - abseil/functional/any_invocable
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/hash/city (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/xcprivacy
+-  - abseil/hash/hash (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/container/fixed_array
+-    - abseil/functional/function_ref
+-    - abseil/hash/city
+-    - abseil/hash/low_level_hash
+-    - abseil/meta/type_traits
+-    - abseil/numeric/bits
+-    - abseil/numeric/int128
+-    - abseil/strings/strings
+-    - abseil/types/optional
+-    - abseil/types/variant
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/hash/low_level_hash (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/endian
+-    - abseil/base/prefetch
+-    - abseil/numeric/int128
+-    - abseil/xcprivacy
+-  - abseil/log/absl_check (1.20240116.2):
+-    - abseil/log/internal/check_impl
+-    - abseil/xcprivacy
+-  - abseil/log/absl_log (1.20240116.2):
+-    - abseil/log/internal/log_impl
+-    - abseil/xcprivacy
+-  - abseil/log/absl_vlog_is_on (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/log/internal/vlog_config
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/log/check (1.20240116.2):
+-    - abseil/log/internal/check_impl
+-    - abseil/log/internal/check_op
+-    - abseil/log/internal/conditions
+-    - abseil/log/internal/log_message
+-    - abseil/log/internal/strip
+-    - abseil/xcprivacy
+-  - abseil/log/globals (1.20240116.2):
+-    - abseil/base/atomic_hook
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/log_severity
+-    - abseil/base/raw_logging_internal
+-    - abseil/hash/hash
+-    - abseil/log/internal/vlog_config
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/log/internal/append_truncated (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/strings/strings
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/log/internal/check_impl (1.20240116.2):
+-    - abseil/base/core_headers
+-    - abseil/log/internal/check_op
+-    - abseil/log/internal/conditions
+-    - abseil/log/internal/log_message
+-    - abseil/log/internal/strip
+-    - abseil/xcprivacy
+-  - abseil/log/internal/check_op (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/log/internal/nullguard
+-    - abseil/log/internal/nullstream
+-    - abseil/log/internal/strip
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/log/internal/conditions (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/log/internal/voidify
+-    - abseil/xcprivacy
+-  - abseil/log/internal/config (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/log/internal/fnmatch (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/log/internal/format (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/log_severity
+-    - abseil/log/internal/append_truncated
+-    - abseil/log/internal/config
+-    - abseil/log/internal/globals
+-    - abseil/strings/str_format
+-    - abseil/strings/strings
+-    - abseil/time/time
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/log/internal/globals (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/log_severity
+-    - abseil/base/raw_logging_internal
+-    - abseil/strings/strings
+-    - abseil/time/time
+-    - abseil/xcprivacy
+-  - abseil/log/internal/log_impl (1.20240116.2):
+-    - abseil/log/absl_vlog_is_on
+-    - abseil/log/internal/conditions
+-    - abseil/log/internal/log_message
+-    - abseil/log/internal/strip
+-    - abseil/xcprivacy
+-  - abseil/log/internal/log_message (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/errno_saver
+-    - abseil/base/log_severity
+-    - abseil/base/raw_logging_internal
+-    - abseil/base/strerror
+-    - abseil/container/inlined_vector
+-    - abseil/debugging/examine_stack
+-    - abseil/log/globals
+-    - abseil/log/internal/append_truncated
+-    - abseil/log/internal/format
+-    - abseil/log/internal/globals
+-    - abseil/log/internal/log_sink_set
+-    - abseil/log/internal/nullguard
+-    - abseil/log/internal/proto
+-    - abseil/log/log_entry
+-    - abseil/log/log_sink
+-    - abseil/log/log_sink_registry
+-    - abseil/memory/memory
+-    - abseil/strings/strings
+-    - abseil/time/time
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/log/internal/log_sink_set (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/log_severity
+-    - abseil/base/no_destructor
+-    - abseil/base/raw_logging_internal
+-    - abseil/cleanup/cleanup
+-    - abseil/log/globals
+-    - abseil/log/internal/config
+-    - abseil/log/internal/globals
+-    - abseil/log/log_entry
+-    - abseil/log/log_sink
+-    - abseil/strings/strings
+-    - abseil/synchronization/synchronization
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/log/internal/nullguard (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/log/internal/nullstream (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/log_severity
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/log/internal/proto (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/strings/strings
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/log/internal/strip (1.20240116.2):
+-    - abseil/base/log_severity
+-    - abseil/log/internal/log_message
+-    - abseil/log/internal/nullstream
+-    - abseil/xcprivacy
+-  - abseil/log/internal/vlog_config (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/no_destructor
+-    - abseil/log/internal/fnmatch
+-    - abseil/memory/memory
+-    - abseil/strings/strings
+-    - abseil/synchronization/synchronization
+-    - abseil/types/optional
+-    - abseil/xcprivacy
+-  - abseil/log/internal/voidify (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/log/log (1.20240116.2):
+-    - abseil/log/internal/log_impl
+-    - abseil/log/vlog_is_on
+-    - abseil/xcprivacy
+-  - abseil/log/log_entry (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/log_severity
+-    - abseil/log/internal/config
+-    - abseil/strings/strings
+-    - abseil/time/time
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/log/log_sink (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/log/log_entry
+-    - abseil/xcprivacy
+-  - abseil/log/log_sink_registry (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/log/internal/log_sink_set
+-    - abseil/log/log_sink
+-    - abseil/xcprivacy
+-  - abseil/log/vlog_is_on (1.20240116.2):
+-    - abseil/log/absl_vlog_is_on
+-    - abseil/xcprivacy
+-  - abseil/memory (1.20240116.2):
+-    - abseil/memory/memory (= 1.20240116.2)
+-  - abseil/memory/memory (1.20240116.2):
+-    - abseil/base/core_headers
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/meta (1.20240116.2):
+-    - abseil/meta/type_traits (= 1.20240116.2)
+-  - abseil/meta/type_traits (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/numeric/bits (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/numeric/int128 (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/numeric/bits
+-    - abseil/xcprivacy
+-  - abseil/numeric/representation (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/profiling/exponential_biased (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/xcprivacy
+-  - abseil/profiling/sample_recorder (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/synchronization/synchronization
+-    - abseil/time/time
+-    - abseil/xcprivacy
+-  - abseil/random/bit_gen_ref (1.20240116.2):
+-    - abseil/base/core_headers
+-    - abseil/base/fast_type_id
+-    - abseil/meta/type_traits
+-    - abseil/random/internal/distribution_caller
+-    - abseil/random/internal/fast_uniform_bits
+-    - abseil/random/random
+-    - abseil/xcprivacy
+-  - abseil/random/distributions (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/meta/type_traits
+-    - abseil/numeric/bits
+-    - abseil/random/internal/distribution_caller
+-    - abseil/random/internal/fast_uniform_bits
+-    - abseil/random/internal/fastmath
+-    - abseil/random/internal/generate_real
+-    - abseil/random/internal/iostream_state_saver
+-    - abseil/random/internal/traits
+-    - abseil/random/internal/uniform_helper
+-    - abseil/random/internal/wide_multiply
+-    - abseil/strings/strings
+-    - abseil/xcprivacy
+-  - abseil/random/internal/distribution_caller (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/fast_type_id
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/random/internal/fast_uniform_bits (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/meta/type_traits
+-    - abseil/random/internal/traits
+-    - abseil/xcprivacy
+-  - abseil/random/internal/fastmath (1.20240116.2):
+-    - abseil/numeric/bits
+-    - abseil/xcprivacy
+-  - abseil/random/internal/generate_real (1.20240116.2):
+-    - abseil/meta/type_traits
+-    - abseil/numeric/bits
+-    - abseil/random/internal/fastmath
+-    - abseil/random/internal/traits
+-    - abseil/xcprivacy
+-  - abseil/random/internal/iostream_state_saver (1.20240116.2):
+-    - abseil/meta/type_traits
+-    - abseil/numeric/int128
+-    - abseil/xcprivacy
+-  - abseil/random/internal/nonsecure_base (1.20240116.2):
+-    - abseil/base/core_headers
+-    - abseil/container/inlined_vector
+-    - abseil/meta/type_traits
+-    - abseil/random/internal/pool_urbg
+-    - abseil/random/internal/salted_seed_seq
+-    - abseil/random/internal/seed_material
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/random/internal/pcg_engine (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/meta/type_traits
+-    - abseil/numeric/bits
+-    - abseil/numeric/int128
+-    - abseil/random/internal/fastmath
+-    - abseil/random/internal/iostream_state_saver
+-    - abseil/xcprivacy
+-  - abseil/random/internal/platform (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/random/internal/pool_urbg (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/base/raw_logging_internal
+-    - abseil/random/internal/randen
+-    - abseil/random/internal/seed_material
+-    - abseil/random/internal/traits
+-    - abseil/random/seed_gen_exception
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/random/internal/randen (1.20240116.2):
+-    - abseil/base/raw_logging_internal
+-    - abseil/random/internal/platform
+-    - abseil/random/internal/randen_hwaes
+-    - abseil/random/internal/randen_slow
+-    - abseil/xcprivacy
+-  - abseil/random/internal/randen_engine (1.20240116.2):
+-    - abseil/base/endian
+-    - abseil/meta/type_traits
+-    - abseil/random/internal/iostream_state_saver
+-    - abseil/random/internal/randen
+-    - abseil/xcprivacy
+-  - abseil/random/internal/randen_hwaes (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/random/internal/platform
+-    - abseil/random/internal/randen_hwaes_impl
+-    - abseil/xcprivacy
+-  - abseil/random/internal/randen_hwaes_impl (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/numeric/int128
+-    - abseil/random/internal/platform
+-    - abseil/xcprivacy
+-  - abseil/random/internal/randen_slow (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/numeric/int128
+-    - abseil/random/internal/platform
+-    - abseil/xcprivacy
+-  - abseil/random/internal/salted_seed_seq (1.20240116.2):
+-    - abseil/container/inlined_vector
+-    - abseil/meta/type_traits
+-    - abseil/random/internal/seed_material
+-    - abseil/types/optional
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/random/internal/seed_material (1.20240116.2):
+-    - abseil/base/core_headers
+-    - abseil/base/dynamic_annotations
+-    - abseil/base/raw_logging_internal
+-    - abseil/random/internal/fast_uniform_bits
+-    - abseil/strings/strings
+-    - abseil/types/optional
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/random/internal/traits (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/numeric/bits
+-    - abseil/numeric/int128
+-    - abseil/xcprivacy
+-  - abseil/random/internal/uniform_helper (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/meta/type_traits
+-    - abseil/numeric/int128
+-    - abseil/random/internal/traits
+-    - abseil/xcprivacy
+-  - abseil/random/internal/wide_multiply (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/numeric/bits
+-    - abseil/numeric/int128
+-    - abseil/random/internal/traits
+-    - abseil/xcprivacy
+-  - abseil/random/random (1.20240116.2):
+-    - abseil/random/distributions
+-    - abseil/random/internal/nonsecure_base
+-    - abseil/random/internal/pcg_engine
+-    - abseil/random/internal/pool_urbg
+-    - abseil/random/internal/randen_engine
+-    - abseil/random/seed_sequences
+-    - abseil/xcprivacy
+-  - abseil/random/seed_gen_exception (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/random/seed_sequences (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/random/internal/pool_urbg
+-    - abseil/random/internal/salted_seed_seq
+-    - abseil/random/internal/seed_material
+-    - abseil/random/seed_gen_exception
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/status/status (1.20240116.2):
+-    - abseil/base/atomic_hook
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/no_destructor
+-    - abseil/base/nullability
+-    - abseil/base/raw_logging_internal
+-    - abseil/base/strerror
+-    - abseil/container/inlined_vector
+-    - abseil/debugging/stacktrace
+-    - abseil/debugging/symbolize
+-    - abseil/functional/function_ref
+-    - abseil/memory/memory
+-    - abseil/strings/cord
+-    - abseil/strings/str_format
+-    - abseil/strings/strings
+-    - abseil/types/optional
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/status/statusor (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/nullability
+-    - abseil/base/raw_logging_internal
+-    - abseil/meta/type_traits
+-    - abseil/status/status
+-    - abseil/strings/has_ostream_operator
+-    - abseil/strings/str_format
+-    - abseil/strings/strings
+-    - abseil/types/variant
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/strings/charset (1.20240116.2):
+-    - abseil/base/core_headers
+-    - abseil/strings/string_view
+-    - abseil/xcprivacy
+-  - abseil/strings/cord (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/base/nullability
+-    - abseil/base/raw_logging_internal
+-    - abseil/container/inlined_vector
+-    - abseil/crc/crc32c
+-    - abseil/crc/crc_cord_state
+-    - abseil/functional/function_ref
+-    - abseil/meta/type_traits
+-    - abseil/numeric/bits
+-    - abseil/strings/cord_internal
+-    - abseil/strings/cordz_functions
+-    - abseil/strings/cordz_info
+-    - abseil/strings/cordz_statistics
+-    - abseil/strings/cordz_update_scope
+-    - abseil/strings/cordz_update_tracker
+-    - abseil/strings/internal
+-    - abseil/strings/strings
+-    - abseil/types/optional
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/strings/cord_internal (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/base/raw_logging_internal
+-    - abseil/base/throw_delegate
+-    - abseil/container/compressed_tuple
+-    - abseil/container/container_memory
+-    - abseil/container/inlined_vector
+-    - abseil/container/layout
+-    - abseil/crc/crc_cord_state
+-    - abseil/functional/function_ref
+-    - abseil/meta/type_traits
+-    - abseil/strings/strings
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/strings/cordz_functions (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/raw_logging_internal
+-    - abseil/profiling/exponential_biased
+-    - abseil/xcprivacy
+-  - abseil/strings/cordz_handle (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/raw_logging_internal
+-    - abseil/synchronization/synchronization
+-    - abseil/xcprivacy
+-  - abseil/strings/cordz_info (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/raw_logging_internal
+-    - abseil/container/inlined_vector
+-    - abseil/debugging/stacktrace
+-    - abseil/strings/cord_internal
+-    - abseil/strings/cordz_functions
+-    - abseil/strings/cordz_handle
+-    - abseil/strings/cordz_statistics
+-    - abseil/strings/cordz_update_tracker
+-    - abseil/synchronization/synchronization
+-    - abseil/time/time
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/strings/cordz_statistics (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/strings/cordz_update_tracker
+-    - abseil/xcprivacy
+-  - abseil/strings/cordz_update_scope (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/strings/cord_internal
+-    - abseil/strings/cordz_info
+-    - abseil/strings/cordz_update_tracker
+-    - abseil/xcprivacy
+-  - abseil/strings/cordz_update_tracker (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/strings/has_ostream_operator (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/strings/internal (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/base/raw_logging_internal
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/strings/str_format (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/nullability
+-    - abseil/strings/str_format_internal
+-    - abseil/strings/string_view
+-    - abseil/types/span
+-    - abseil/xcprivacy
+-  - abseil/strings/str_format_internal (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/container/fixed_array
+-    - abseil/container/inlined_vector
+-    - abseil/functional/function_ref
+-    - abseil/meta/type_traits
+-    - abseil/numeric/bits
+-    - abseil/numeric/int128
+-    - abseil/numeric/representation
+-    - abseil/strings/strings
+-    - abseil/types/optional
+-    - abseil/types/span
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/strings/string_view (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/nullability
+-    - abseil/base/throw_delegate
+-    - abseil/xcprivacy
+-  - abseil/strings/strings (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/endian
+-    - abseil/base/nullability
+-    - abseil/base/raw_logging_internal
+-    - abseil/base/throw_delegate
+-    - abseil/memory/memory
+-    - abseil/meta/type_traits
+-    - abseil/numeric/bits
+-    - abseil/numeric/int128
+-    - abseil/strings/charset
+-    - abseil/strings/internal
+-    - abseil/strings/string_view
+-    - abseil/xcprivacy
+-  - abseil/synchronization/graphcycles_internal (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/malloc_internal
+-    - abseil/base/raw_logging_internal
+-    - abseil/xcprivacy
+-  - abseil/synchronization/kernel_timeout_internal (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/raw_logging_internal
+-    - abseil/time/time
+-    - abseil/xcprivacy
+-  - abseil/synchronization/synchronization (1.20240116.2):
+-    - abseil/base/atomic_hook
+-    - abseil/base/base
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/dynamic_annotations
+-    - abseil/base/malloc_internal
+-    - abseil/base/raw_logging_internal
+-    - abseil/debugging/stacktrace
+-    - abseil/debugging/symbolize
+-    - abseil/synchronization/graphcycles_internal
+-    - abseil/synchronization/kernel_timeout_internal
+-    - abseil/time/time
+-    - abseil/xcprivacy
+-  - abseil/time (1.20240116.2):
+-    - abseil/time/internal (= 1.20240116.2)
+-    - abseil/time/time (= 1.20240116.2)
+-  - abseil/time/internal (1.20240116.2):
+-    - abseil/time/internal/cctz (= 1.20240116.2)
+-  - abseil/time/internal/cctz (1.20240116.2):
+-    - abseil/time/internal/cctz/civil_time (= 1.20240116.2)
+-    - abseil/time/internal/cctz/time_zone (= 1.20240116.2)
+-  - abseil/time/internal/cctz/civil_time (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/xcprivacy
+-  - abseil/time/internal/cctz/time_zone (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/time/internal/cctz/civil_time
+-    - abseil/xcprivacy
+-  - abseil/time/time (1.20240116.2):
+-    - abseil/base/base
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/raw_logging_internal
+-    - abseil/numeric/int128
+-    - abseil/strings/strings
+-    - abseil/time/internal/cctz/civil_time
+-    - abseil/time/internal/cctz/time_zone
+-    - abseil/types/optional
+-    - abseil/xcprivacy
+-  - abseil/types (1.20240116.2):
+-    - abseil/types/any (= 1.20240116.2)
+-    - abseil/types/bad_any_cast (= 1.20240116.2)
+-    - abseil/types/bad_any_cast_impl (= 1.20240116.2)
+-    - abseil/types/bad_optional_access (= 1.20240116.2)
+-    - abseil/types/bad_variant_access (= 1.20240116.2)
+-    - abseil/types/compare (= 1.20240116.2)
+-    - abseil/types/optional (= 1.20240116.2)
+-    - abseil/types/span (= 1.20240116.2)
+-    - abseil/types/variant (= 1.20240116.2)
+-  - abseil/types/any (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/fast_type_id
+-    - abseil/meta/type_traits
+-    - abseil/types/bad_any_cast
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/types/bad_any_cast (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/types/bad_any_cast_impl
+-    - abseil/xcprivacy
+-  - abseil/types/bad_any_cast_impl (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/raw_logging_internal
+-    - abseil/xcprivacy
+-  - abseil/types/bad_optional_access (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/raw_logging_internal
+-    - abseil/xcprivacy
+-  - abseil/types/bad_variant_access (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/raw_logging_internal
+-    - abseil/xcprivacy
+-  - abseil/types/compare (1.20240116.2):
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/types/optional (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/base/nullability
+-    - abseil/memory/memory
+-    - abseil/meta/type_traits
+-    - abseil/types/bad_optional_access
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/types/span (1.20240116.2):
+-    - abseil/algorithm/algorithm
+-    - abseil/base/core_headers
+-    - abseil/base/nullability
+-    - abseil/base/throw_delegate
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/types/variant (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/base/core_headers
+-    - abseil/meta/type_traits
+-    - abseil/types/bad_variant_access
+-    - abseil/utility/utility
+-    - abseil/xcprivacy
+-  - abseil/utility/utility (1.20240116.2):
+-    - abseil/base/base_internal
+-    - abseil/base/config
+-    - abseil/meta/type_traits
+-    - abseil/xcprivacy
+-  - abseil/xcprivacy (1.20240116.2)
+-  - BoringSSL-GRPC (0.0.36):
+-    - BoringSSL-GRPC/Implementation (= 0.0.36)
+-    - BoringSSL-GRPC/Interface (= 0.0.36)
+-  - BoringSSL-GRPC/Implementation (0.0.36):
+-    - BoringSSL-GRPC/Interface (= 0.0.36)
+-  - BoringSSL-GRPC/Interface (0.0.36)
+-  - cloud_firestore (5.6.5):
+-    - Firebase/Firestore (= 11.8.0)
+-    - firebase_core
+-    - Flutter
+-  - Firebase/CoreOnly (11.8.0):
+-    - FirebaseCore (~> 11.8.0)
+-  - Firebase/Firestore (11.8.0):
+-    - Firebase/CoreOnly
+-    - FirebaseFirestore (~> 11.8.0)
+-  - firebase_core (3.12.1):
+-    - Firebase/CoreOnly (= 11.8.0)
+-    - Flutter
+-  - FirebaseAppCheckInterop (11.11.0)
+-  - FirebaseCore (11.8.1):
+-    - FirebaseCoreInternal (~> 11.8.0)
+-    - GoogleUtilities/Environment (~> 8.0)
+-    - GoogleUtilities/Logger (~> 8.0)
+-  - FirebaseCoreExtension (11.8.0):
+-    - FirebaseCore (~> 11.8.0)
+-  - FirebaseCoreInternal (11.8.0):
+-    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+-  - FirebaseFirestore (11.8.0):
+-    - FirebaseCore (~> 11.8.0)
+-    - FirebaseCoreExtension (~> 11.8.0)
+-    - FirebaseFirestoreInternal (= 11.8.0)
+-    - FirebaseSharedSwift (~> 11.0)
+-  - FirebaseFirestoreInternal (11.8.0):
+-    - abseil/algorithm (~> 1.20240116.1)
+-    - abseil/base (~> 1.20240116.1)
+-    - abseil/container/flat_hash_map (~> 1.20240116.1)
+-    - abseil/memory (~> 1.20240116.1)
+-    - abseil/meta (~> 1.20240116.1)
+-    - abseil/strings/strings (~> 1.20240116.1)
+-    - abseil/time (~> 1.20240116.1)
+-    - abseil/types (~> 1.20240116.1)
+-    - FirebaseAppCheckInterop (~> 11.0)
+-    - FirebaseCore (~> 11.8.0)
+-    - "gRPC-C++ (~> 1.65.0)"
+-    - gRPC-Core (~> 1.65.0)
+-    - leveldb-library (~> 1.22)
+-    - nanopb (~> 3.30910.0)
+-  - FirebaseSharedSwift (11.11.0)
+-  - Flutter (1.0.0)
+-  - GoogleUtilities/Environment (8.0.2):
+-    - GoogleUtilities/Privacy
+-  - GoogleUtilities/Logger (8.0.2):
+-    - GoogleUtilities/Environment
+-    - GoogleUtilities/Privacy
+-  - "GoogleUtilities/NSData+zlib (8.0.2)":
+-    - GoogleUtilities/Privacy
+-  - GoogleUtilities/Privacy (8.0.2)
+-  - "gRPC-C++ (1.65.5)":
+-    - "gRPC-C++/Implementation (= 1.65.5)"
+-    - "gRPC-C++/Interface (= 1.65.5)"
+-  - "gRPC-C++/Implementation (1.65.5)":
+-    - abseil/algorithm/container (~> 1.20240116.2)
+-    - abseil/base/base (~> 1.20240116.2)
+-    - abseil/base/config (~> 1.20240116.2)
+-    - abseil/base/core_headers (~> 1.20240116.2)
+-    - abseil/base/log_severity (~> 1.20240116.2)
+-    - abseil/base/no_destructor (~> 1.20240116.2)
+-    - abseil/cleanup/cleanup (~> 1.20240116.2)
+-    - abseil/container/flat_hash_map (~> 1.20240116.2)
+-    - abseil/container/flat_hash_set (~> 1.20240116.2)
+-    - abseil/container/inlined_vector (~> 1.20240116.2)
+-    - abseil/flags/flag (~> 1.20240116.2)
+-    - abseil/flags/marshalling (~> 1.20240116.2)
+-    - abseil/functional/any_invocable (~> 1.20240116.2)
+-    - abseil/functional/bind_front (~> 1.20240116.2)
+-    - abseil/functional/function_ref (~> 1.20240116.2)
+-    - abseil/hash/hash (~> 1.20240116.2)
+-    - abseil/log/absl_check (~> 1.20240116.2)
+-    - abseil/log/absl_log (~> 1.20240116.2)
+-    - abseil/log/check (~> 1.20240116.2)
+-    - abseil/log/globals (~> 1.20240116.2)
+-    - abseil/log/log (~> 1.20240116.2)
+-    - abseil/memory/memory (~> 1.20240116.2)
+-    - abseil/meta/type_traits (~> 1.20240116.2)
+-    - abseil/random/bit_gen_ref (~> 1.20240116.2)
+-    - abseil/random/distributions (~> 1.20240116.2)
+-    - abseil/random/random (~> 1.20240116.2)
+-    - abseil/status/status (~> 1.20240116.2)
+-    - abseil/status/statusor (~> 1.20240116.2)
+-    - abseil/strings/cord (~> 1.20240116.2)
+-    - abseil/strings/str_format (~> 1.20240116.2)
+-    - abseil/strings/strings (~> 1.20240116.2)
+-    - abseil/synchronization/synchronization (~> 1.20240116.2)
+-    - abseil/time/time (~> 1.20240116.2)
+-    - abseil/types/optional (~> 1.20240116.2)
+-    - abseil/types/span (~> 1.20240116.2)
+-    - abseil/types/variant (~> 1.20240116.2)
+-    - abseil/utility/utility (~> 1.20240116.2)
+-    - "gRPC-C++/Interface (= 1.65.5)"
+-    - "gRPC-C++/Privacy (= 1.65.5)"
+-    - gRPC-Core (= 1.65.5)
+-  - "gRPC-C++/Interface (1.65.5)"
+-  - "gRPC-C++/Privacy (1.65.5)"
+-  - gRPC-Core (1.65.5):
+-    - gRPC-Core/Implementation (= 1.65.5)
+-    - gRPC-Core/Interface (= 1.65.5)
+-  - gRPC-Core/Implementation (1.65.5):
+-    - abseil/algorithm/container (~> 1.20240116.2)
+-    - abseil/base/base (~> 1.20240116.2)
+-    - abseil/base/config (~> 1.20240116.2)
+-    - abseil/base/core_headers (~> 1.20240116.2)
+-    - abseil/base/log_severity (~> 1.20240116.2)
+-    - abseil/base/no_destructor (~> 1.20240116.2)
+-    - abseil/cleanup/cleanup (~> 1.20240116.2)
+-    - abseil/container/flat_hash_map (~> 1.20240116.2)
+-    - abseil/container/flat_hash_set (~> 1.20240116.2)
+-    - abseil/container/inlined_vector (~> 1.20240116.2)
+-    - abseil/flags/flag (~> 1.20240116.2)
+-    - abseil/flags/marshalling (~> 1.20240116.2)
+-    - abseil/functional/any_invocable (~> 1.20240116.2)
+-    - abseil/functional/bind_front (~> 1.20240116.2)
+-    - abseil/functional/function_ref (~> 1.20240116.2)
+-    - abseil/hash/hash (~> 1.20240116.2)
+-    - abseil/log/check (~> 1.20240116.2)
+-    - abseil/log/globals (~> 1.20240116.2)
+-    - abseil/log/log (~> 1.20240116.2)
+-    - abseil/memory/memory (~> 1.20240116.2)
+-    - abseil/meta/type_traits (~> 1.20240116.2)
+-    - abseil/random/bit_gen_ref (~> 1.20240116.2)
+-    - abseil/random/distributions (~> 1.20240116.2)
+-    - abseil/random/random (~> 1.20240116.2)
+-    - abseil/status/status (~> 1.20240116.2)
+-    - abseil/status/statusor (~> 1.20240116.2)
+-    - abseil/strings/cord (~> 1.20240116.2)
+-    - abseil/strings/str_format (~> 1.20240116.2)
+-    - abseil/strings/strings (~> 1.20240116.2)
+-    - abseil/synchronization/synchronization (~> 1.20240116.2)
+-    - abseil/time/time (~> 1.20240116.2)
+-    - abseil/types/optional (~> 1.20240116.2)
+-    - abseil/types/span (~> 1.20240116.2)
+-    - abseil/types/variant (~> 1.20240116.2)
+-    - abseil/utility/utility (~> 1.20240116.2)
+-    - BoringSSL-GRPC (= 0.0.36)
+-    - gRPC-Core/Interface (= 1.65.5)
+-    - gRPC-Core/Privacy (= 1.65.5)
+-  - gRPC-Core/Interface (1.65.5)
+-  - gRPC-Core/Privacy (1.65.5)
+-  - leveldb-library (1.22.6)
+-  - nanopb (3.30910.0):
+-    - nanopb/decode (= 3.30910.0)
+-    - nanopb/encode (= 3.30910.0)
+-  - nanopb/decode (3.30910.0)
+-  - nanopb/encode (3.30910.0)
+-  - url_launcher_ios (0.0.1):
+-    - Flutter
+-
+-DEPENDENCIES:
+-  - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
+-  - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+-  - Flutter (from `Flutter`)
+-  - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
+-
+-SPEC REPOS:
+-  trunk:
+-    - abseil
+-    - BoringSSL-GRPC
+-    - Firebase
+-    - FirebaseAppCheckInterop
+-    - FirebaseCore
+-    - FirebaseCoreExtension
+-    - FirebaseCoreInternal
+-    - FirebaseFirestore
+-    - FirebaseFirestoreInternal
+-    - FirebaseSharedSwift
+-    - GoogleUtilities
+-    - "gRPC-C++"
+-    - gRPC-Core
+-    - leveldb-library
+-    - nanopb
+-
+-EXTERNAL SOURCES:
+-  cloud_firestore:
+-    :path: ".symlinks/plugins/cloud_firestore/ios"
+-  firebase_core:
+-    :path: ".symlinks/plugins/firebase_core/ios"
+-  Flutter:
+-    :path: Flutter
+-  url_launcher_ios:
+-    :path: ".symlinks/plugins/url_launcher_ios/ios"
+-
+-SPEC CHECKSUMS:
+-  abseil: d121da9ef7e2ff4cab7666e76c5a3e0915ae08c3
+-  BoringSSL-GRPC: ca6a8e5d04812fce8ffd6437810c2d46f925eaeb
+-  cloud_firestore: e61acbf808607d2c88ee32b00cd3aec027b38b3c
+-  Firebase: d80354ed7f6df5f9aca55e9eb47cc4b634735eaf
+-  firebase_core: 8d552814f6c01ccde5d88939fced4ec26f2f5510
+-  FirebaseAppCheckInterop: f23709c9ce92d810aa53ff4ce12ad3e666a3c7be
+-  FirebaseCore: 99fe0c4b44a39f37d99e6404e02009d2db5d718d
+-  FirebaseCoreExtension: 3d3f2017a00d06e09ab4ebe065391b0bb642565e
+-  FirebaseCoreInternal: df24ce5af28864660ecbd13596fc8dd3a8c34629
+-  FirebaseFirestore: 563a4ab1a65e2858f05e150bb4c31b0f8f79248b
+-  FirebaseFirestoreInternal: 8c5921c360a70e447bfeefb245f450e8b50e750b
+-  FirebaseSharedSwift: b1d32c3b29a911dc174bcf363f2f70bda9509d2f
+-  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+-  GoogleUtilities: 26a3abef001b6533cf678d3eb38fd3f614b7872d
+-  "gRPC-C++": 2fa52b3141e7789a28a737f251e0c45b4cb20a87
+-  gRPC-Core: a27c294d6149e1c39a7d173527119cfbc3375ce4
+-  leveldb-library: cc8b8f8e013647a295ad3f8cd2ddf49a6f19be19
+-  nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
+-  url_launcher_ios: 694010445543906933d732453a59da0a173ae33d
+-
+-PODFILE CHECKSUM: 4305caec6b40dde0ae97be1573c53de1882a07e5
+-
+-COCOAPODS: 1.16.2
 +PODS:
 +  - abseil/algorithm (1.20240116.2):
 +    - abseil/algorithm/algorithm (= 1.20240116.2)
@@ -1465,1439 +2816,3 @@ index 0000000..810e9e9
 +PODFILE CHECKSUM: 4305caec6b40dde0ae97be1573c53de1882a07e5
 +
 +COCOAPODS: 1.16.2
-diff --git a/ios/Runner.xcodeproj/project.pbxproj b/ios/Runner.xcodeproj/project.pbxproj
-index a18b93f..21a29f4 100644
---- a/ios/Runner.xcodeproj/project.pbxproj
-+++ b/ios/Runner.xcodeproj/project.pbxproj
-@@ -1,616 +1,731 @@
--// !$*UTF8*$!
--{
--	archiveVersion = 1;
--	classes = {
--	};
--	objectVersion = 54;
--	objects = {
--
--/* Begin PBXBuildFile section */
--		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
--		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
--		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
--		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
--		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
--		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
--		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
--/* End PBXBuildFile section */
--
--/* Begin PBXContainerItemProxy section */
--		331C8085294A63A400263BE5 /* PBXContainerItemProxy */ = {
--			isa = PBXContainerItemProxy;
--			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
--			proxyType = 1;
--			remoteGlobalIDString = 97C146ED1CF9000F007C117D;
--			remoteInfo = Runner;
--		};
--/* End PBXContainerItemProxy section */
--
--/* Begin PBXCopyFilesBuildPhase section */
--		9705A1C41CF9048500538489 /* Embed Frameworks */ = {
--			isa = PBXCopyFilesBuildPhase;
--			buildActionMask = 2147483647;
--			dstPath = "";
--			dstSubfolderSpec = 10;
--			files = (
--			);
--			name = "Embed Frameworks";
--			runOnlyForDeploymentPostprocessing = 0;
--		};
--/* End PBXCopyFilesBuildPhase section */
--
--/* Begin PBXFileReference section */
--		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
--		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
--		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
--		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
--		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
--		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
--		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
--		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
--		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
--		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
--		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
--		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
--		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
--		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
--		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
--/* End PBXFileReference section */
--
--/* Begin PBXFrameworksBuildPhase section */
--		97C146EB1CF9000F007C117D /* Frameworks */ = {
--			isa = PBXFrameworksBuildPhase;
--			buildActionMask = 2147483647;
--			files = (
--			);
--			runOnlyForDeploymentPostprocessing = 0;
--		};
--/* End PBXFrameworksBuildPhase section */
--
--/* Begin PBXGroup section */
--		331C8082294A63A400263BE5 /* RunnerTests */ = {
--			isa = PBXGroup;
--			children = (
--				331C807B294A618700263BE5 /* RunnerTests.swift */,
--			);
--			path = RunnerTests;
--			sourceTree = "<group>";
--		};
--		9740EEB11CF90186004384FC /* Flutter */ = {
--			isa = PBXGroup;
--			children = (
--				3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */,
--				9740EEB21CF90195004384FC /* Debug.xcconfig */,
--				7AFA3C8E1D35360C0083082E /* Release.xcconfig */,
--				9740EEB31CF90195004384FC /* Generated.xcconfig */,
--			);
--			name = Flutter;
--			sourceTree = "<group>";
--		};
--		97C146E51CF9000F007C117D = {
--			isa = PBXGroup;
--			children = (
--				9740EEB11CF90186004384FC /* Flutter */,
--				97C146F01CF9000F007C117D /* Runner */,
--				97C146EF1CF9000F007C117D /* Products */,
--				331C8082294A63A400263BE5 /* RunnerTests */,
--			);
--			sourceTree = "<group>";
--		};
--		97C146EF1CF9000F007C117D /* Products */ = {
--			isa = PBXGroup;
--			children = (
--				97C146EE1CF9000F007C117D /* Runner.app */,
--				331C8081294A63A400263BE5 /* RunnerTests.xctest */,
--			);
--			name = Products;
--			sourceTree = "<group>";
--		};
--		97C146F01CF9000F007C117D /* Runner */ = {
--			isa = PBXGroup;
--			children = (
--				97C146FA1CF9000F007C117D /* Main.storyboard */,
--				97C146FD1CF9000F007C117D /* Assets.xcassets */,
--				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
--				97C147021CF9000F007C117D /* Info.plist */,
--				1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */,
--				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
--				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
--				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
--			);
--			path = Runner;
--			sourceTree = "<group>";
--		};
--/* End PBXGroup section */
--
--/* Begin PBXNativeTarget section */
--		331C8080294A63A400263BE5 /* RunnerTests */ = {
--			isa = PBXNativeTarget;
--			buildConfigurationList = 331C8087294A63A400263BE5 /* Build configuration list for PBXNativeTarget "RunnerTests" */;
--			buildPhases = (
--				331C807D294A63A400263BE5 /* Sources */,
--				331C807F294A63A400263BE5 /* Resources */,
--			);
--			buildRules = (
--			);
--			dependencies = (
--				331C8086294A63A400263BE5 /* PBXTargetDependency */,
--			);
--			name = RunnerTests;
--			productName = RunnerTests;
--			productReference = 331C8081294A63A400263BE5 /* RunnerTests.xctest */;
--			productType = "com.apple.product-type.bundle.unit-test";
--		};
--		97C146ED1CF9000F007C117D /* Runner */ = {
--			isa = PBXNativeTarget;
--			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
--			buildPhases = (
--				9740EEB61CF901F6004384FC /* Run Script */,
--				97C146EA1CF9000F007C117D /* Sources */,
--				97C146EB1CF9000F007C117D /* Frameworks */,
--				97C146EC1CF9000F007C117D /* Resources */,
--				9705A1C41CF9048500538489 /* Embed Frameworks */,
--				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
--			);
--			buildRules = (
--			);
--			dependencies = (
--			);
--			name = Runner;
--			productName = Runner;
--			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
--			productType = "com.apple.product-type.application";
--		};
--/* End PBXNativeTarget section */
--
--/* Begin PBXProject section */
--		97C146E61CF9000F007C117D /* Project object */ = {
--			isa = PBXProject;
--			attributes = {
--				BuildIndependentTargetsInParallel = YES;
--				LastUpgradeCheck = 1510;
--				ORGANIZATIONNAME = "";
--				TargetAttributes = {
--					331C8080294A63A400263BE5 = {
--						CreatedOnToolsVersion = 14.0;
--						TestTargetID = 97C146ED1CF9000F007C117D;
--					};
--					97C146ED1CF9000F007C117D = {
--						CreatedOnToolsVersion = 7.3.1;
--						LastSwiftMigration = 1100;
--					};
--				};
--			};
--			buildConfigurationList = 97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */;
--			compatibilityVersion = "Xcode 9.3";
--			developmentRegion = en;
--			hasScannedForEncodings = 0;
--			knownRegions = (
--				en,
--				Base,
--			);
--			mainGroup = 97C146E51CF9000F007C117D;
--			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
--			projectDirPath = "";
--			projectRoot = "";
--			targets = (
--				97C146ED1CF9000F007C117D /* Runner */,
--				331C8080294A63A400263BE5 /* RunnerTests */,
--			);
--		};
--/* End PBXProject section */
--
--/* Begin PBXResourcesBuildPhase section */
--		331C807F294A63A400263BE5 /* Resources */ = {
--			isa = PBXResourcesBuildPhase;
--			buildActionMask = 2147483647;
--			files = (
--			);
--			runOnlyForDeploymentPostprocessing = 0;
--		};
--		97C146EC1CF9000F007C117D /* Resources */ = {
--			isa = PBXResourcesBuildPhase;
--			buildActionMask = 2147483647;
--			files = (
--				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
--				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
--				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
--				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
--			);
--			runOnlyForDeploymentPostprocessing = 0;
--		};
--/* End PBXResourcesBuildPhase section */
--
--/* Begin PBXShellScriptBuildPhase section */
--		3B06AD1E1E4923F5004D2608 /* Thin Binary */ = {
--			isa = PBXShellScriptBuildPhase;
--			alwaysOutOfDate = 1;
--			buildActionMask = 2147483647;
--			files = (
--			);
--			inputPaths = (
--				"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}",
--			);
--			name = "Thin Binary";
--			outputPaths = (
--			);
--			runOnlyForDeploymentPostprocessing = 0;
--			shellPath = /bin/sh;
--			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
--		};
--		9740EEB61CF901F6004384FC /* Run Script */ = {
--			isa = PBXShellScriptBuildPhase;
--			alwaysOutOfDate = 1;
--			buildActionMask = 2147483647;
--			files = (
--			);
--			inputPaths = (
--			);
--			name = "Run Script";
--			outputPaths = (
--			);
--			runOnlyForDeploymentPostprocessing = 0;
--			shellPath = /bin/sh;
--			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
--		};
--/* End PBXShellScriptBuildPhase section */
--
--/* Begin PBXSourcesBuildPhase section */
--		331C807D294A63A400263BE5 /* Sources */ = {
--			isa = PBXSourcesBuildPhase;
--			buildActionMask = 2147483647;
--			files = (
--				331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */,
--			);
--			runOnlyForDeploymentPostprocessing = 0;
--		};
--		97C146EA1CF9000F007C117D /* Sources */ = {
--			isa = PBXSourcesBuildPhase;
--			buildActionMask = 2147483647;
--			files = (
--				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
--				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
--			);
--			runOnlyForDeploymentPostprocessing = 0;
--		};
--/* End PBXSourcesBuildPhase section */
--
--/* Begin PBXTargetDependency section */
--		331C8086294A63A400263BE5 /* PBXTargetDependency */ = {
--			isa = PBXTargetDependency;
--			target = 97C146ED1CF9000F007C117D /* Runner */;
--			targetProxy = 331C8085294A63A400263BE5 /* PBXContainerItemProxy */;
--		};
--/* End PBXTargetDependency section */
--
--/* Begin PBXVariantGroup section */
--		97C146FA1CF9000F007C117D /* Main.storyboard */ = {
--			isa = PBXVariantGroup;
--			children = (
--				97C146FB1CF9000F007C117D /* Base */,
--			);
--			name = Main.storyboard;
--			sourceTree = "<group>";
--		};
--		97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */ = {
--			isa = PBXVariantGroup;
--			children = (
--				97C147001CF9000F007C117D /* Base */,
--			);
--			name = LaunchScreen.storyboard;
--			sourceTree = "<group>";
--		};
--/* End PBXVariantGroup section */
--
--/* Begin XCBuildConfiguration section */
--		249021D3217E4FDB00AE95B9 /* Profile */ = {
--			isa = XCBuildConfiguration;
--			buildSettings = {
--				ALWAYS_SEARCH_USER_PATHS = NO;
--				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
--				CLANG_ANALYZER_NONNULL = YES;
--				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
--				CLANG_CXX_LIBRARY = "libc++";
--				CLANG_ENABLE_MODULES = YES;
--				CLANG_ENABLE_OBJC_ARC = YES;
--				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
--				CLANG_WARN_BOOL_CONVERSION = YES;
--				CLANG_WARN_COMMA = YES;
--				CLANG_WARN_CONSTANT_CONVERSION = YES;
--				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
--				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
--				CLANG_WARN_EMPTY_BODY = YES;
--				CLANG_WARN_ENUM_CONVERSION = YES;
--				CLANG_WARN_INFINITE_RECURSION = YES;
--				CLANG_WARN_INT_CONVERSION = YES;
--				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
--				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
--				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
--				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
--				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
--				CLANG_WARN_STRICT_PROTOTYPES = YES;
--				CLANG_WARN_SUSPICIOUS_MOVE = YES;
--				CLANG_WARN_UNREACHABLE_CODE = YES;
--				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
--				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
--				COPY_PHASE_STRIP = NO;
--				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
--				ENABLE_NS_ASSERTIONS = NO;
--				ENABLE_STRICT_OBJC_MSGSEND = YES;
--				ENABLE_USER_SCRIPT_SANDBOXING = NO;
--				GCC_C_LANGUAGE_STANDARD = gnu99;
--				GCC_NO_COMMON_BLOCKS = YES;
--				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
--				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
--				GCC_WARN_UNDECLARED_SELECTOR = YES;
--				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
--				GCC_WARN_UNUSED_FUNCTION = YES;
--				GCC_WARN_UNUSED_VARIABLE = YES;
--				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
--				MTL_ENABLE_DEBUG_INFO = NO;
--				SDKROOT = iphoneos;
--				SUPPORTED_PLATFORMS = iphoneos;
--				TARGETED_DEVICE_FAMILY = "1,2";
--				VALIDATE_PRODUCT = YES;
--			};
--			name = Profile;
--		};
--		249021D4217E4FDB00AE95B9 /* Profile */ = {
--			isa = XCBuildConfiguration;
--			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
--			buildSettings = {
--				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
--				CLANG_ENABLE_MODULES = YES;
--				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
--				ENABLE_BITCODE = NO;
--				INFOPLIST_FILE = Runner/Info.plist;
--				LD_RUNPATH_SEARCH_PATHS = (
--					"$(inherited)",
--					"@executable_path/Frameworks",
--				);
--				PRODUCT_BUNDLE_IDENTIFIER = com.technocore.aloraapp;
--				PRODUCT_NAME = "$(TARGET_NAME)";
--				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
--				SWIFT_VERSION = 5.0;
--				VERSIONING_SYSTEM = "apple-generic";
--			};
--			name = Profile;
--		};
--		331C8088294A63A400263BE5 /* Debug */ = {
--			isa = XCBuildConfiguration;
--			buildSettings = {
--				BUNDLE_LOADER = "$(TEST_HOST)";
--				CODE_SIGN_STYLE = Automatic;
--				CURRENT_PROJECT_VERSION = 1;
--				GENERATE_INFOPLIST_FILE = YES;
--				MARKETING_VERSION = 1.0;
--				PRODUCT_BUNDLE_IDENTIFIER = com.example.aloraapp.RunnerTests;
--				PRODUCT_NAME = "$(TARGET_NAME)";
--				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
--				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
--				SWIFT_VERSION = 5.0;
--				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
--			};
--			name = Debug;
--		};
--		331C8089294A63A400263BE5 /* Release */ = {
--			isa = XCBuildConfiguration;
--			buildSettings = {
--				BUNDLE_LOADER = "$(TEST_HOST)";
--				CODE_SIGN_STYLE = Automatic;
--				CURRENT_PROJECT_VERSION = 1;
--				GENERATE_INFOPLIST_FILE = YES;
--				MARKETING_VERSION = 1.0;
--				PRODUCT_BUNDLE_IDENTIFIER = com.example.aloraapp.RunnerTests;
--				PRODUCT_NAME = "$(TARGET_NAME)";
--				SWIFT_VERSION = 5.0;
--				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
--			};
--			name = Release;
--		};
--		331C808A294A63A400263BE5 /* Profile */ = {
--			isa = XCBuildConfiguration;
--			buildSettings = {
--				BUNDLE_LOADER = "$(TEST_HOST)";
--				CODE_SIGN_STYLE = Automatic;
--				CURRENT_PROJECT_VERSION = 1;
--				GENERATE_INFOPLIST_FILE = YES;
--				MARKETING_VERSION = 1.0;
--				PRODUCT_BUNDLE_IDENTIFIER = com.example.aloraapp.RunnerTests;
--				PRODUCT_NAME = "$(TARGET_NAME)";
--				SWIFT_VERSION = 5.0;
--				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
--			};
--			name = Profile;
--		};
--		97C147031CF9000F007C117D /* Debug */ = {
--			isa = XCBuildConfiguration;
--			buildSettings = {
--				ALWAYS_SEARCH_USER_PATHS = NO;
--				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
--				CLANG_ANALYZER_NONNULL = YES;
--				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
--				CLANG_CXX_LIBRARY = "libc++";
--				CLANG_ENABLE_MODULES = YES;
--				CLANG_ENABLE_OBJC_ARC = YES;
--				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
--				CLANG_WARN_BOOL_CONVERSION = YES;
--				CLANG_WARN_COMMA = YES;
--				CLANG_WARN_CONSTANT_CONVERSION = YES;
--				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
--				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
--				CLANG_WARN_EMPTY_BODY = YES;
--				CLANG_WARN_ENUM_CONVERSION = YES;
--				CLANG_WARN_INFINITE_RECURSION = YES;
--				CLANG_WARN_INT_CONVERSION = YES;
--				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
--				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
--				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
--				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
--				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
--				CLANG_WARN_STRICT_PROTOTYPES = YES;
--				CLANG_WARN_SUSPICIOUS_MOVE = YES;
--				CLANG_WARN_UNREACHABLE_CODE = YES;
--				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
--				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
--				COPY_PHASE_STRIP = NO;
--				DEBUG_INFORMATION_FORMAT = dwarf;
--				ENABLE_STRICT_OBJC_MSGSEND = YES;
--				ENABLE_TESTABILITY = YES;
--				ENABLE_USER_SCRIPT_SANDBOXING = NO;
--				GCC_C_LANGUAGE_STANDARD = gnu99;
--				GCC_DYNAMIC_NO_PIC = NO;
--				GCC_NO_COMMON_BLOCKS = YES;
--				GCC_OPTIMIZATION_LEVEL = 0;
--				GCC_PREPROCESSOR_DEFINITIONS = (
--					"DEBUG=1",
--					"$(inherited)",
--				);
--				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
--				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
--				GCC_WARN_UNDECLARED_SELECTOR = YES;
--				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
--				GCC_WARN_UNUSED_FUNCTION = YES;
--				GCC_WARN_UNUSED_VARIABLE = YES;
--				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
--				MTL_ENABLE_DEBUG_INFO = YES;
--				ONLY_ACTIVE_ARCH = YES;
--				SDKROOT = iphoneos;
--				TARGETED_DEVICE_FAMILY = "1,2";
--			};
--			name = Debug;
--		};
--		97C147041CF9000F007C117D /* Release */ = {
--			isa = XCBuildConfiguration;
--			buildSettings = {
--				ALWAYS_SEARCH_USER_PATHS = NO;
--				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
--				CLANG_ANALYZER_NONNULL = YES;
--				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
--				CLANG_CXX_LIBRARY = "libc++";
--				CLANG_ENABLE_MODULES = YES;
--				CLANG_ENABLE_OBJC_ARC = YES;
--				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
--				CLANG_WARN_BOOL_CONVERSION = YES;
--				CLANG_WARN_COMMA = YES;
--				CLANG_WARN_CONSTANT_CONVERSION = YES;
--				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
--				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
--				CLANG_WARN_EMPTY_BODY = YES;
--				CLANG_WARN_ENUM_CONVERSION = YES;
--				CLANG_WARN_INFINITE_RECURSION = YES;
--				CLANG_WARN_INT_CONVERSION = YES;
--				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
--				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
--				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
--				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
--				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
--				CLANG_WARN_STRICT_PROTOTYPES = YES;
--				CLANG_WARN_SUSPICIOUS_MOVE = YES;
--				CLANG_WARN_UNREACHABLE_CODE = YES;
--				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
--				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
--				COPY_PHASE_STRIP = NO;
--				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
--				ENABLE_NS_ASSERTIONS = NO;
--				ENABLE_STRICT_OBJC_MSGSEND = YES;
--				ENABLE_USER_SCRIPT_SANDBOXING = NO;
--				GCC_C_LANGUAGE_STANDARD = gnu99;
--				GCC_NO_COMMON_BLOCKS = YES;
--				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
--				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
--				GCC_WARN_UNDECLARED_SELECTOR = YES;
--				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
--				GCC_WARN_UNUSED_FUNCTION = YES;
--				GCC_WARN_UNUSED_VARIABLE = YES;
--				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
--				MTL_ENABLE_DEBUG_INFO = NO;
--				SDKROOT = iphoneos;
--				SUPPORTED_PLATFORMS = iphoneos;
--				SWIFT_COMPILATION_MODE = wholemodule;
--				SWIFT_OPTIMIZATION_LEVEL = "-O";
--				TARGETED_DEVICE_FAMILY = "1,2";
--				VALIDATE_PRODUCT = YES;
--			};
--			name = Release;
--		};
--		97C147061CF9000F007C117D /* Debug */ = {
--			isa = XCBuildConfiguration;
--			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
--			buildSettings = {
--				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
--				CLANG_ENABLE_MODULES = YES;
--				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
--				ENABLE_BITCODE = NO;
--				INFOPLIST_FILE = Runner/Info.plist;
--				LD_RUNPATH_SEARCH_PATHS = (
--					"$(inherited)",
--					"@executable_path/Frameworks",
--				);
--				PRODUCT_BUNDLE_IDENTIFIER = com.technocore.aloraapp;
--				PRODUCT_NAME = "$(TARGET_NAME)";
--				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
--				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
--				SWIFT_VERSION = 5.0;
--				VERSIONING_SYSTEM = "apple-generic";
--			};
--			name = Debug;
--		};
--		97C147071CF9000F007C117D /* Release */ = {
--			isa = XCBuildConfiguration;
--			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
--			buildSettings = {
--				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
--				CLANG_ENABLE_MODULES = YES;
--				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
--				ENABLE_BITCODE = NO;
--				INFOPLIST_FILE = Runner/Info.plist;
--				LD_RUNPATH_SEARCH_PATHS = (
--					"$(inherited)",
--					"@executable_path/Frameworks",
--				);
--				PRODUCT_BUNDLE_IDENTIFIER = com.technocore.aloraapp;
--				PRODUCT_NAME = "$(TARGET_NAME)";
--				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
--				SWIFT_VERSION = 5.0;
--				VERSIONING_SYSTEM = "apple-generic";
--			};
--			name = Release;
--		};
--/* End XCBuildConfiguration section */
--
--/* Begin XCConfigurationList section */
--		331C8087294A63A400263BE5 /* Build configuration list for PBXNativeTarget "RunnerTests" */ = {
--			isa = XCConfigurationList;
--			buildConfigurations = (
--				331C8088294A63A400263BE5 /* Debug */,
--				331C8089294A63A400263BE5 /* Release */,
--				331C808A294A63A400263BE5 /* Profile */,
--			);
--			defaultConfigurationIsVisible = 0;
--			defaultConfigurationName = Release;
--		};
--		97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */ = {
--			isa = XCConfigurationList;
--			buildConfigurations = (
--				97C147031CF9000F007C117D /* Debug */,
--				97C147041CF9000F007C117D /* Release */,
--				249021D3217E4FDB00AE95B9 /* Profile */,
--			);
--			defaultConfigurationIsVisible = 0;
--			defaultConfigurationName = Release;
--		};
--		97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */ = {
--			isa = XCConfigurationList;
--			buildConfigurations = (
--				97C147061CF9000F007C117D /* Debug */,
--				97C147071CF9000F007C117D /* Release */,
--				249021D4217E4FDB00AE95B9 /* Profile */,
--			);
--			defaultConfigurationIsVisible = 0;
--			defaultConfigurationName = Release;
--		};
--/* End XCConfigurationList section */
--	};
--	rootObject = 97C146E61CF9000F007C117D /* Project object */;
--}
-+// !$*UTF8*$!
-+{
-+	archiveVersion = 1;
-+	classes = {
-+	};
-+	objectVersion = 54;
-+	objects = {
-+
-+/* Begin PBXBuildFile section */
-+		1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */; };
-+		331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331C807B294A618700263BE5 /* RunnerTests.swift */; };
-+		3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */; };
-+		3BB13706BC122EC0B8DF23AF /* Pods_Runner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C340CBFC4022A9963484D7F /* Pods_Runner.framework */; };
-+		68ACD9B22D9C0DC8000360EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68ACD9B12D9C0DC8000360EB /* GoogleService-Info.plist */; };
-+		7397368676845A4255BDF011 /* Pods_RunnerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 078BF457161F2F7B411C662E /* Pods_RunnerTests.framework */; };
-+		74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74858FAE1ED2DC5600515810 /* AppDelegate.swift */; };
-+		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
-+		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
-+		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
-+/* End PBXBuildFile section */
-+
-+/* Begin PBXContainerItemProxy section */
-+		331C8085294A63A400263BE5 /* PBXContainerItemProxy */ = {
-+			isa = PBXContainerItemProxy;
-+			containerPortal = 97C146E61CF9000F007C117D /* Project object */;
-+			proxyType = 1;
-+			remoteGlobalIDString = 97C146ED1CF9000F007C117D;
-+			remoteInfo = Runner;
-+		};
-+/* End PBXContainerItemProxy section */
-+
-+/* Begin PBXCopyFilesBuildPhase section */
-+		9705A1C41CF9048500538489 /* Embed Frameworks */ = {
-+			isa = PBXCopyFilesBuildPhase;
-+			buildActionMask = 2147483647;
-+			dstPath = "";
-+			dstSubfolderSpec = 10;
-+			files = (
-+			);
-+			name = "Embed Frameworks";
-+			runOnlyForDeploymentPostprocessing = 0;
-+		};
-+/* End PBXCopyFilesBuildPhase section */
-+
-+/* Begin PBXFileReference section */
-+		078BF457161F2F7B411C662E /* Pods_RunnerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunnerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-+		0818E60877E5B66E2D80AB41 /* Pods-RunnerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.debug.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.debug.xcconfig"; sourceTree = "<group>"; };
-+		089EC3A2B9D1C724CBFC07EA /* Pods-RunnerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.release.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.release.xcconfig"; sourceTree = "<group>"; };
-+		0C340CBFC4022A9963484D7F /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-+		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
-+		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
-+		1DD35146A7112DE3E1277067 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
-+		2338B6DBD60DFAD8287180DB /* Pods-RunnerTests.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunnerTests.profile.xcconfig"; path = "Target Support Files/Pods-RunnerTests/Pods-RunnerTests.profile.xcconfig"; sourceTree = "<group>"; };
-+		331C807B294A618700263BE5 /* RunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunnerTests.swift; sourceTree = "<group>"; };
-+		331C8081294A63A400263BE5 /* RunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-+		3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AppFrameworkInfo.plist; path = Flutter/AppFrameworkInfo.plist; sourceTree = "<group>"; };
-+		50814EFF6BCA8A8854DA1DF1 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
-+		68ACD9B12D9C0DC8000360EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-+		74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Runner-Bridging-Header.h"; sourceTree = "<group>"; };
-+		74858FAE1ED2DC5600515810 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-+		7AFA3C8E1D35360C0083082E /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = Flutter/Release.xcconfig; sourceTree = "<group>"; };
-+		80F1097954066B2D2815044C /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
-+		9740EEB21CF90195004384FC /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = Flutter/Debug.xcconfig; sourceTree = "<group>"; };
-+		9740EEB31CF90195004384FC /* Generated.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Generated.xcconfig; path = Flutter/Generated.xcconfig; sourceTree = "<group>"; };
-+		97C146EE1CF9000F007C117D /* Runner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Runner.app; sourceTree = BUILT_PRODUCTS_DIR; };
-+		97C146FB1CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-+		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-+		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-+		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-+/* End PBXFileReference section */
-+
-+/* Begin PBXFrameworksBuildPhase section */
-+		6A94D7262853DAF6C2797C97 /* Frameworks */ = {
-+			isa = PBXFrameworksBuildPhase;
-+			buildActionMask = 2147483647;
-+			files = (
-+				7397368676845A4255BDF011 /* Pods_RunnerTests.framework in Frameworks */,
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+		};
-+		97C146EB1CF9000F007C117D /* Frameworks */ = {
-+			isa = PBXFrameworksBuildPhase;
-+			buildActionMask = 2147483647;
-+			files = (
-+				3BB13706BC122EC0B8DF23AF /* Pods_Runner.framework in Frameworks */,
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+		};
-+/* End PBXFrameworksBuildPhase section */
-+
-+/* Begin PBXGroup section */
-+		331C8082294A63A400263BE5 /* RunnerTests */ = {
-+			isa = PBXGroup;
-+			children = (
-+				331C807B294A618700263BE5 /* RunnerTests.swift */,
-+			);
-+			path = RunnerTests;
-+			sourceTree = "<group>";
-+		};
-+		478640E7FEA6943EC95ABEF1 /* Pods */ = {
-+			isa = PBXGroup;
-+			children = (
-+				1DD35146A7112DE3E1277067 /* Pods-Runner.debug.xcconfig */,
-+				50814EFF6BCA8A8854DA1DF1 /* Pods-Runner.release.xcconfig */,
-+				80F1097954066B2D2815044C /* Pods-Runner.profile.xcconfig */,
-+				0818E60877E5B66E2D80AB41 /* Pods-RunnerTests.debug.xcconfig */,
-+				089EC3A2B9D1C724CBFC07EA /* Pods-RunnerTests.release.xcconfig */,
-+				2338B6DBD60DFAD8287180DB /* Pods-RunnerTests.profile.xcconfig */,
-+			);
-+			path = Pods;
-+			sourceTree = "<group>";
-+		};
-+		9740EEB11CF90186004384FC /* Flutter */ = {
-+			isa = PBXGroup;
-+			children = (
-+				3B3967151E833CAA004F5970 /* AppFrameworkInfo.plist */,
-+				9740EEB21CF90195004384FC /* Debug.xcconfig */,
-+				7AFA3C8E1D35360C0083082E /* Release.xcconfig */,
-+				9740EEB31CF90195004384FC /* Generated.xcconfig */,
-+			);
-+			name = Flutter;
-+			sourceTree = "<group>";
-+		};
-+		97C146E51CF9000F007C117D = {
-+			isa = PBXGroup;
-+			children = (
-+				68ACD9B12D9C0DC8000360EB /* GoogleService-Info.plist */,
-+				9740EEB11CF90186004384FC /* Flutter */,
-+				97C146F01CF9000F007C117D /* Runner */,
-+				97C146EF1CF9000F007C117D /* Products */,
-+				331C8082294A63A400263BE5 /* RunnerTests */,
-+				478640E7FEA6943EC95ABEF1 /* Pods */,
-+				F8FEE74B8D2170AF9A00DC6E /* Frameworks */,
-+			);
-+			sourceTree = "<group>";
-+		};
-+		97C146EF1CF9000F007C117D /* Products */ = {
-+			isa = PBXGroup;
-+			children = (
-+				97C146EE1CF9000F007C117D /* Runner.app */,
-+				331C8081294A63A400263BE5 /* RunnerTests.xctest */,
-+			);
-+			name = Products;
-+			sourceTree = "<group>";
-+		};
-+		97C146F01CF9000F007C117D /* Runner */ = {
-+			isa = PBXGroup;
-+			children = (
-+				97C146FA1CF9000F007C117D /* Main.storyboard */,
-+				97C146FD1CF9000F007C117D /* Assets.xcassets */,
-+				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
-+				97C147021CF9000F007C117D /* Info.plist */,
-+				1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */,
-+				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
-+				74858FAE1ED2DC5600515810 /* AppDelegate.swift */,
-+				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
-+			);
-+			path = Runner;
-+			sourceTree = "<group>";
-+		};
-+		F8FEE74B8D2170AF9A00DC6E /* Frameworks */ = {
-+			isa = PBXGroup;
-+			children = (
-+				0C340CBFC4022A9963484D7F /* Pods_Runner.framework */,
-+				078BF457161F2F7B411C662E /* Pods_RunnerTests.framework */,
-+			);
-+			name = Frameworks;
-+			sourceTree = "<group>";
-+		};
-+/* End PBXGroup section */
-+
-+/* Begin PBXNativeTarget section */
-+		331C8080294A63A400263BE5 /* RunnerTests */ = {
-+			isa = PBXNativeTarget;
-+			buildConfigurationList = 331C8087294A63A400263BE5 /* Build configuration list for PBXNativeTarget "RunnerTests" */;
-+			buildPhases = (
-+				B6F7C9B83C66D92775F4506A /* [CP] Check Pods Manifest.lock */,
-+				331C807D294A63A400263BE5 /* Sources */,
-+				331C807F294A63A400263BE5 /* Resources */,
-+				6A94D7262853DAF6C2797C97 /* Frameworks */,
-+			);
-+			buildRules = (
-+			);
-+			dependencies = (
-+				331C8086294A63A400263BE5 /* PBXTargetDependency */,
-+			);
-+			name = RunnerTests;
-+			productName = RunnerTests;
-+			productReference = 331C8081294A63A400263BE5 /* RunnerTests.xctest */;
-+			productType = "com.apple.product-type.bundle.unit-test";
-+		};
-+		97C146ED1CF9000F007C117D /* Runner */ = {
-+			isa = PBXNativeTarget;
-+			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
-+			buildPhases = (
-+				64798630D31CE8A478842969 /* [CP] Check Pods Manifest.lock */,
-+				9740EEB61CF901F6004384FC /* Run Script */,
-+				97C146EA1CF9000F007C117D /* Sources */,
-+				97C146EB1CF9000F007C117D /* Frameworks */,
-+				97C146EC1CF9000F007C117D /* Resources */,
-+				9705A1C41CF9048500538489 /* Embed Frameworks */,
-+				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
-+				F0A9FEF17B2C584D536561CD /* [CP] Embed Pods Frameworks */,
-+			);
-+			buildRules = (
-+			);
-+			dependencies = (
-+			);
-+			name = Runner;
-+			productName = Runner;
-+			productReference = 97C146EE1CF9000F007C117D /* Runner.app */;
-+			productType = "com.apple.product-type.application";
-+		};
-+/* End PBXNativeTarget section */
-+
-+/* Begin PBXProject section */
-+		97C146E61CF9000F007C117D /* Project object */ = {
-+			isa = PBXProject;
-+			attributes = {
-+				BuildIndependentTargetsInParallel = YES;
-+				LastUpgradeCheck = 1510;
-+				ORGANIZATIONNAME = "";
-+				TargetAttributes = {
-+					331C8080294A63A400263BE5 = {
-+						CreatedOnToolsVersion = 14.0;
-+						TestTargetID = 97C146ED1CF9000F007C117D;
-+					};
-+					97C146ED1CF9000F007C117D = {
-+						CreatedOnToolsVersion = 7.3.1;
-+						LastSwiftMigration = 1100;
-+					};
-+				};
-+			};
-+			buildConfigurationList = 97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */;
-+			compatibilityVersion = "Xcode 9.3";
-+			developmentRegion = en;
-+			hasScannedForEncodings = 0;
-+			knownRegions = (
-+				en,
-+				Base,
-+			);
-+			mainGroup = 97C146E51CF9000F007C117D;
-+			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
-+			projectDirPath = "";
-+			projectRoot = "";
-+			targets = (
-+				97C146ED1CF9000F007C117D /* Runner */,
-+				331C8080294A63A400263BE5 /* RunnerTests */,
-+			);
-+		};
-+/* End PBXProject section */
-+
-+/* Begin PBXResourcesBuildPhase section */
-+		331C807F294A63A400263BE5 /* Resources */ = {
-+			isa = PBXResourcesBuildPhase;
-+			buildActionMask = 2147483647;
-+			files = (
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+		};
-+		97C146EC1CF9000F007C117D /* Resources */ = {
-+			isa = PBXResourcesBuildPhase;
-+			buildActionMask = 2147483647;
-+			files = (
-+				97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */,
-+				3B3967161E833CAA004F5970 /* AppFrameworkInfo.plist in Resources */,
-+				68ACD9B22D9C0DC8000360EB /* GoogleService-Info.plist in Resources */,
-+				97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */,
-+				97C146FC1CF9000F007C117D /* Main.storyboard in Resources */,
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+		};
-+/* End PBXResourcesBuildPhase section */
-+
-+/* Begin PBXShellScriptBuildPhase section */
-+		3B06AD1E1E4923F5004D2608 /* Thin Binary */ = {
-+			isa = PBXShellScriptBuildPhase;
-+			alwaysOutOfDate = 1;
-+			buildActionMask = 2147483647;
-+			files = (
-+			);
-+			inputPaths = (
-+				"${TARGET_BUILD_DIR}/${INFOPLIST_PATH}",
-+			);
-+			name = "Thin Binary";
-+			outputPaths = (
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+			shellPath = /bin/sh;
-+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed_and_thin";
-+		};
-+		64798630D31CE8A478842969 /* [CP] Check Pods Manifest.lock */ = {
-+			isa = PBXShellScriptBuildPhase;
-+			buildActionMask = 2147483647;
-+			files = (
-+			);
-+			inputFileListPaths = (
-+			);
-+			inputPaths = (
-+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-+				"${PODS_ROOT}/Manifest.lock",
-+			);
-+			name = "[CP] Check Pods Manifest.lock";
-+			outputFileListPaths = (
-+			);
-+			outputPaths = (
-+				"$(DERIVED_FILE_DIR)/Pods-Runner-checkManifestLockResult.txt",
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+			shellPath = /bin/sh;
-+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-+			showEnvVarsInLog = 0;
-+		};
-+		9740EEB61CF901F6004384FC /* Run Script */ = {
-+			isa = PBXShellScriptBuildPhase;
-+			alwaysOutOfDate = 1;
-+			buildActionMask = 2147483647;
-+			files = (
-+			);
-+			inputPaths = (
-+			);
-+			name = "Run Script";
-+			outputPaths = (
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+			shellPath = /bin/sh;
-+			shellScript = "/bin/sh \"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build";
-+		};
-+		B6F7C9B83C66D92775F4506A /* [CP] Check Pods Manifest.lock */ = {
-+			isa = PBXShellScriptBuildPhase;
-+			buildActionMask = 2147483647;
-+			files = (
-+			);
-+			inputFileListPaths = (
-+			);
-+			inputPaths = (
-+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-+				"${PODS_ROOT}/Manifest.lock",
-+			);
-+			name = "[CP] Check Pods Manifest.lock";
-+			outputFileListPaths = (
-+			);
-+			outputPaths = (
-+				"$(DERIVED_FILE_DIR)/Pods-RunnerTests-checkManifestLockResult.txt",
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+			shellPath = /bin/sh;
-+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-+			showEnvVarsInLog = 0;
-+		};
-+		F0A9FEF17B2C584D536561CD /* [CP] Embed Pods Frameworks */ = {
-+			isa = PBXShellScriptBuildPhase;
-+			buildActionMask = 2147483647;
-+			files = (
-+			);
-+			inputFileListPaths = (
-+				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-+			);
-+			name = "[CP] Embed Pods Frameworks";
-+			outputFileListPaths = (
-+				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+			shellPath = /bin/sh;
-+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks.sh\"\n";
-+			showEnvVarsInLog = 0;
-+		};
-+/* End PBXShellScriptBuildPhase section */
-+
-+/* Begin PBXSourcesBuildPhase section */
-+		331C807D294A63A400263BE5 /* Sources */ = {
-+			isa = PBXSourcesBuildPhase;
-+			buildActionMask = 2147483647;
-+			files = (
-+				331C808B294A63AB00263BE5 /* RunnerTests.swift in Sources */,
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+		};
-+		97C146EA1CF9000F007C117D /* Sources */ = {
-+			isa = PBXSourcesBuildPhase;
-+			buildActionMask = 2147483647;
-+			files = (
-+				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,
-+				1498D2341E8E89220040F4C2 /* GeneratedPluginRegistrant.m in Sources */,
-+			);
-+			runOnlyForDeploymentPostprocessing = 0;
-+		};
-+/* End PBXSourcesBuildPhase section */
-+
-+/* Begin PBXTargetDependency section */
-+		331C8086294A63A400263BE5 /* PBXTargetDependency */ = {
-+			isa = PBXTargetDependency;
-+			target = 97C146ED1CF9000F007C117D /* Runner */;
-+			targetProxy = 331C8085294A63A400263BE5 /* PBXContainerItemProxy */;
-+		};
-+/* End PBXTargetDependency section */
-+
-+/* Begin PBXVariantGroup section */
-+		97C146FA1CF9000F007C117D /* Main.storyboard */ = {
-+			isa = PBXVariantGroup;
-+			children = (
-+				97C146FB1CF9000F007C117D /* Base */,
-+			);
-+			name = Main.storyboard;
-+			sourceTree = "<group>";
-+		};
-+		97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */ = {
-+			isa = PBXVariantGroup;
-+			children = (
-+				97C147001CF9000F007C117D /* Base */,
-+			);
-+			name = LaunchScreen.storyboard;
-+			sourceTree = "<group>";
-+		};
-+/* End PBXVariantGroup section */
-+
-+/* Begin XCBuildConfiguration section */
-+		249021D3217E4FDB00AE95B9 /* Profile */ = {
-+			isa = XCBuildConfiguration;
-+			buildSettings = {
-+				ALWAYS_SEARCH_USER_PATHS = NO;
-+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-+				CLANG_ANALYZER_NONNULL = YES;
-+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-+				CLANG_CXX_LIBRARY = "libc++";
-+				CLANG_ENABLE_MODULES = YES;
-+				CLANG_ENABLE_OBJC_ARC = YES;
-+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-+				CLANG_WARN_BOOL_CONVERSION = YES;
-+				CLANG_WARN_COMMA = YES;
-+				CLANG_WARN_CONSTANT_CONVERSION = YES;
-+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-+				CLANG_WARN_EMPTY_BODY = YES;
-+				CLANG_WARN_ENUM_CONVERSION = YES;
-+				CLANG_WARN_INFINITE_RECURSION = YES;
-+				CLANG_WARN_INT_CONVERSION = YES;
-+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-+				CLANG_WARN_STRICT_PROTOTYPES = YES;
-+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-+				CLANG_WARN_UNREACHABLE_CODE = YES;
-+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-+				COPY_PHASE_STRIP = NO;
-+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-+				ENABLE_NS_ASSERTIONS = NO;
-+				ENABLE_STRICT_OBJC_MSGSEND = YES;
-+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-+				GCC_C_LANGUAGE_STANDARD = gnu99;
-+				GCC_NO_COMMON_BLOCKS = YES;
-+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-+				GCC_WARN_UNDECLARED_SELECTOR = YES;
-+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-+				GCC_WARN_UNUSED_FUNCTION = YES;
-+				GCC_WARN_UNUSED_VARIABLE = YES;
-+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-+				MTL_ENABLE_DEBUG_INFO = NO;
-+				SDKROOT = iphoneos;
-+				SUPPORTED_PLATFORMS = iphoneos;
-+				TARGETED_DEVICE_FAMILY = "1,2";
-+				VALIDATE_PRODUCT = YES;
-+			};
-+			name = Profile;
-+		};
-+		249021D4217E4FDB00AE95B9 /* Profile */ = {
-+			isa = XCBuildConfiguration;
-+			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
-+			buildSettings = {
-+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-+				CLANG_ENABLE_MODULES = YES;
-+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-+				ENABLE_BITCODE = NO;
-+				INFOPLIST_FILE = Runner/Info.plist;
-+				LD_RUNPATH_SEARCH_PATHS = (
-+					"$(inherited)",
-+					"@executable_path/Frameworks",
-+				);
-+				PRODUCT_BUNDLE_IDENTIFIER = com.technocore.aloraapp;
-+				PRODUCT_NAME = "$(TARGET_NAME)";
-+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
-+				SWIFT_VERSION = 5.0;
-+				VERSIONING_SYSTEM = "apple-generic";
-+			};
-+			name = Profile;
-+		};
-+		331C8088294A63A400263BE5 /* Debug */ = {
-+			isa = XCBuildConfiguration;
-+			baseConfigurationReference = 0818E60877E5B66E2D80AB41 /* Pods-RunnerTests.debug.xcconfig */;
-+			buildSettings = {
-+				BUNDLE_LOADER = "$(TEST_HOST)";
-+				CODE_SIGN_STYLE = Automatic;
-+				CURRENT_PROJECT_VERSION = 1;
-+				GENERATE_INFOPLIST_FILE = YES;
-+				MARKETING_VERSION = 1.0;
-+				PRODUCT_BUNDLE_IDENTIFIER = com.example.aloraapp.RunnerTests;
-+				PRODUCT_NAME = "$(TARGET_NAME)";
-+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-+				SWIFT_VERSION = 5.0;
-+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
-+			};
-+			name = Debug;
-+		};
-+		331C8089294A63A400263BE5 /* Release */ = {
-+			isa = XCBuildConfiguration;
-+			baseConfigurationReference = 089EC3A2B9D1C724CBFC07EA /* Pods-RunnerTests.release.xcconfig */;
-+			buildSettings = {
-+				BUNDLE_LOADER = "$(TEST_HOST)";
-+				CODE_SIGN_STYLE = Automatic;
-+				CURRENT_PROJECT_VERSION = 1;
-+				GENERATE_INFOPLIST_FILE = YES;
-+				MARKETING_VERSION = 1.0;
-+				PRODUCT_BUNDLE_IDENTIFIER = com.example.aloraapp.RunnerTests;
-+				PRODUCT_NAME = "$(TARGET_NAME)";
-+				SWIFT_VERSION = 5.0;
-+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
-+			};
-+			name = Release;
-+		};
-+		331C808A294A63A400263BE5 /* Profile */ = {
-+			isa = XCBuildConfiguration;
-+			baseConfigurationReference = 2338B6DBD60DFAD8287180DB /* Pods-RunnerTests.profile.xcconfig */;
-+			buildSettings = {
-+				BUNDLE_LOADER = "$(TEST_HOST)";
-+				CODE_SIGN_STYLE = Automatic;
-+				CURRENT_PROJECT_VERSION = 1;
-+				GENERATE_INFOPLIST_FILE = YES;
-+				MARKETING_VERSION = 1.0;
-+				PRODUCT_BUNDLE_IDENTIFIER = com.example.aloraapp.RunnerTests;
-+				PRODUCT_NAME = "$(TARGET_NAME)";
-+				SWIFT_VERSION = 5.0;
-+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Runner.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Runner";
-+			};
-+			name = Profile;
-+		};
-+		97C147031CF9000F007C117D /* Debug */ = {
-+			isa = XCBuildConfiguration;
-+			buildSettings = {
-+				ALWAYS_SEARCH_USER_PATHS = NO;
-+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-+				CLANG_ANALYZER_NONNULL = YES;
-+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-+				CLANG_CXX_LIBRARY = "libc++";
-+				CLANG_ENABLE_MODULES = YES;
-+				CLANG_ENABLE_OBJC_ARC = YES;
-+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-+				CLANG_WARN_BOOL_CONVERSION = YES;
-+				CLANG_WARN_COMMA = YES;
-+				CLANG_WARN_CONSTANT_CONVERSION = YES;
-+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-+				CLANG_WARN_EMPTY_BODY = YES;
-+				CLANG_WARN_ENUM_CONVERSION = YES;
-+				CLANG_WARN_INFINITE_RECURSION = YES;
-+				CLANG_WARN_INT_CONVERSION = YES;
-+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-+				CLANG_WARN_STRICT_PROTOTYPES = YES;
-+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-+				CLANG_WARN_UNREACHABLE_CODE = YES;
-+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-+				COPY_PHASE_STRIP = NO;
-+				DEBUG_INFORMATION_FORMAT = dwarf;
-+				ENABLE_STRICT_OBJC_MSGSEND = YES;
-+				ENABLE_TESTABILITY = YES;
-+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-+				GCC_C_LANGUAGE_STANDARD = gnu99;
-+				GCC_DYNAMIC_NO_PIC = NO;
-+				GCC_NO_COMMON_BLOCKS = YES;
-+				GCC_OPTIMIZATION_LEVEL = 0;
-+				GCC_PREPROCESSOR_DEFINITIONS = (
-+					"DEBUG=1",
-+					"$(inherited)",
-+				);
-+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-+				GCC_WARN_UNDECLARED_SELECTOR = YES;
-+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-+				GCC_WARN_UNUSED_FUNCTION = YES;
-+				GCC_WARN_UNUSED_VARIABLE = YES;
-+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-+				MTL_ENABLE_DEBUG_INFO = YES;
-+				ONLY_ACTIVE_ARCH = YES;
-+				SDKROOT = iphoneos;
-+				TARGETED_DEVICE_FAMILY = "1,2";
-+			};
-+			name = Debug;
-+		};
-+		97C147041CF9000F007C117D /* Release */ = {
-+			isa = XCBuildConfiguration;
-+			buildSettings = {
-+				ALWAYS_SEARCH_USER_PATHS = NO;
-+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-+				CLANG_ANALYZER_NONNULL = YES;
-+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-+				CLANG_CXX_LIBRARY = "libc++";
-+				CLANG_ENABLE_MODULES = YES;
-+				CLANG_ENABLE_OBJC_ARC = YES;
-+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-+				CLANG_WARN_BOOL_CONVERSION = YES;
-+				CLANG_WARN_COMMA = YES;
-+				CLANG_WARN_CONSTANT_CONVERSION = YES;
-+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-+				CLANG_WARN_EMPTY_BODY = YES;
-+				CLANG_WARN_ENUM_CONVERSION = YES;
-+				CLANG_WARN_INFINITE_RECURSION = YES;
-+				CLANG_WARN_INT_CONVERSION = YES;
-+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-+				CLANG_WARN_STRICT_PROTOTYPES = YES;
-+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-+				CLANG_WARN_UNREACHABLE_CODE = YES;
-+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-+				COPY_PHASE_STRIP = NO;
-+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-+				ENABLE_NS_ASSERTIONS = NO;
-+				ENABLE_STRICT_OBJC_MSGSEND = YES;
-+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-+				GCC_C_LANGUAGE_STANDARD = gnu99;
-+				GCC_NO_COMMON_BLOCKS = YES;
-+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-+				GCC_WARN_UNDECLARED_SELECTOR = YES;
-+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-+				GCC_WARN_UNUSED_FUNCTION = YES;
-+				GCC_WARN_UNUSED_VARIABLE = YES;
-+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-+				MTL_ENABLE_DEBUG_INFO = NO;
-+				SDKROOT = iphoneos;
-+				SUPPORTED_PLATFORMS = iphoneos;
-+				SWIFT_COMPILATION_MODE = wholemodule;
-+				SWIFT_OPTIMIZATION_LEVEL = "-O";
-+				TARGETED_DEVICE_FAMILY = "1,2";
-+				VALIDATE_PRODUCT = YES;
-+			};
-+			name = Release;
-+		};
-+		97C147061CF9000F007C117D /* Debug */ = {
-+			isa = XCBuildConfiguration;
-+			baseConfigurationReference = 9740EEB21CF90195004384FC /* Debug.xcconfig */;
-+			buildSettings = {
-+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-+				CLANG_ENABLE_MODULES = YES;
-+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-+				ENABLE_BITCODE = NO;
-+				INFOPLIST_FILE = Runner/Info.plist;
-+				LD_RUNPATH_SEARCH_PATHS = (
-+					"$(inherited)",
-+					"@executable_path/Frameworks",
-+				);
-+				PRODUCT_BUNDLE_IDENTIFIER = com.technocore.aloraapp;
-+				PRODUCT_NAME = "$(TARGET_NAME)";
-+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
-+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-+				SWIFT_VERSION = 5.0;
-+				VERSIONING_SYSTEM = "apple-generic";
-+			};
-+			name = Debug;
-+		};
-+		97C147071CF9000F007C117D /* Release */ = {
-+			isa = XCBuildConfiguration;
-+			baseConfigurationReference = 7AFA3C8E1D35360C0083082E /* Release.xcconfig */;
-+			buildSettings = {
-+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-+				CLANG_ENABLE_MODULES = YES;
-+				CURRENT_PROJECT_VERSION = "$(FLUTTER_BUILD_NUMBER)";
-+				ENABLE_BITCODE = NO;
-+				INFOPLIST_FILE = Runner/Info.plist;
-+				LD_RUNPATH_SEARCH_PATHS = (
-+					"$(inherited)",
-+					"@executable_path/Frameworks",
-+				);
-+				PRODUCT_BUNDLE_IDENTIFIER = com.technocore.aloraapp;
-+				PRODUCT_NAME = "$(TARGET_NAME)";
-+				SWIFT_OBJC_BRIDGING_HEADER = "Runner/Runner-Bridging-Header.h";
-+				SWIFT_VERSION = 5.0;
-+				VERSIONING_SYSTEM = "apple-generic";
-+			};
-+			name = Release;
-+		};
-+/* End XCBuildConfiguration section */
-+
-+/* Begin XCConfigurationList section */
-+		331C8087294A63A400263BE5 /* Build configuration list for PBXNativeTarget "RunnerTests" */ = {
-+			isa = XCConfigurationList;
-+			buildConfigurations = (
-+				331C8088294A63A400263BE5 /* Debug */,
-+				331C8089294A63A400263BE5 /* Release */,
-+				331C808A294A63A400263BE5 /* Profile */,
-+			);
-+			defaultConfigurationIsVisible = 0;
-+			defaultConfigurationName = Release;
-+		};
-+		97C146E91CF9000F007C117D /* Build configuration list for PBXProject "Runner" */ = {
-+			isa = XCConfigurationList;
-+			buildConfigurations = (
-+				97C147031CF9000F007C117D /* Debug */,
-+				97C147041CF9000F007C117D /* Release */,
-+				249021D3217E4FDB00AE95B9 /* Profile */,
-+			);
-+			defaultConfigurationIsVisible = 0;
-+			defaultConfigurationName = Release;
-+		};
-+		97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */ = {
-+			isa = XCConfigurationList;
-+			buildConfigurations = (
-+				97C147061CF9000F007C117D /* Debug */,
-+				97C147071CF9000F007C117D /* Release */,
-+				249021D4217E4FDB00AE95B9 /* Profile */,
-+			);
-+			defaultConfigurationIsVisible = 0;
-+			defaultConfigurationName = Release;
-+		};
-+/* End XCConfigurationList section */
-+	};
-+	rootObject = 97C146E61CF9000F007C117D /* Project object */;
-+}
-diff --git a/ios/Runner.xcworkspace/contents.xcworkspacedata b/ios/Runner.xcworkspace/contents.xcworkspacedata
-index 59c6d39..21a3cc1 100644
---- a/ios/Runner.xcworkspace/contents.xcworkspacedata
-+++ b/ios/Runner.xcworkspace/contents.xcworkspacedata
-@@ -1,7 +1,10 @@
--<?xml version="1.0" encoding="UTF-8"?>
--<Workspace
--   version = "1.0">
--   <FileRef
--      location = "group:Runner.xcodeproj">
--   </FileRef>
--</Workspace>
-+<?xml version="1.0" encoding="UTF-8"?>
-+<Workspace
-+   version = "1.0">
-+   <FileRef
-+      location = "group:Runner.xcodeproj">
-+   </FileRef>
-+   <FileRef
-+      location = "group:Pods/Pods.xcodeproj">
-+   </FileRef>
-+</Workspace>
-diff --git a/macos/Flutter/Flutter-Debug.xcconfig b/macos/Flutter/Flutter-Debug.xcconfig
-index f022c34..df4c964 100644
---- a/macos/Flutter/Flutter-Debug.xcconfig
-+++ b/macos/Flutter/Flutter-Debug.xcconfig
-@@ -1 +1,2 @@
-+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
- #include "ephemeral/Flutter-Generated.xcconfig"
-diff --git a/macos/Flutter/Flutter-Release.xcconfig b/macos/Flutter/Flutter-Release.xcconfig
-index f022c34..e79501e 100644
---- a/macos/Flutter/Flutter-Release.xcconfig
-+++ b/macos/Flutter/Flutter-Release.xcconfig
-@@ -1 +1,2 @@
-+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
- #include "ephemeral/Flutter-Generated.xcconfig"
-diff --git a/macos/Podfile b/macos/Podfile
-new file mode 100644
-index 0000000..29c8eb3
---- /dev/null
-+++ b/macos/Podfile
-@@ -0,0 +1,42 @@
-+platform :osx, '10.14'
-+
-+# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
-+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
-+
-+project 'Runner', {
-+  'Debug' => :debug,
-+  'Profile' => :release,
-+  'Release' => :release,
-+}
-+
-+def flutter_root
-+  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'ephemeral', 'Flutter-Generated.xcconfig'), __FILE__)
-+  unless File.exist?(generated_xcode_build_settings_path)
-+    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure \"flutter pub get\" is executed first"
-+  end
-+
-+  File.foreach(generated_xcode_build_settings_path) do |line|
-+    matches = line.match(/FLUTTER_ROOT\=(.*)/)
-+    return matches[1].strip if matches
-+  end
-+  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Flutter-Generated.xcconfig, then run \"flutter pub get\""
-+end
-+
-+require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
-+
-+flutter_macos_podfile_setup
-+
-+target 'Runner' do
-+  use_frameworks!
-+
-+  flutter_install_all_macos_pods File.dirname(File.realpath(__FILE__))
-+  target 'RunnerTests' do
-+    inherit! :search_paths
-+  end
-+end
-+
-+post_install do |installer|
-+  installer.pods_project.targets.each do |target|
-+    flutter_additional_macos_build_settings(target)
-+  end
-+end
